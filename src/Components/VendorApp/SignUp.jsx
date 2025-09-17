@@ -18,11 +18,17 @@ export const SignUp = () => {
           <p>Create your account to unlock full features..</p>
           <form>
             <div className="name-fields">
-              <input type="text" placeholder="First Name" />
-              <input type="text" placeholder="Last Name" />
-            </div>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+              <div className="field">
+                <label htmlFor="firstName">First Name</label>
+                <input type="text" id="firstName" placeholder="Jane" />
+              </div>
+              <div className="field">
+                <label htmlFor="lastName">Last Name</label>
+                <input type="text" id="lastName" placeholder="Doe" />
+              </div>
+              </div>
+              <input type="email" placeholder="Email" />
+              <input type="password" placeholder="Password" />
             <div className="checkbox-row">
               <input type="checkbox" id="terms" />
               <label htmlFor="terms">
