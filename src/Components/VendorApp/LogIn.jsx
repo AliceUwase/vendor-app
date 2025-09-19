@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import React from 'react'
 import './LogIn.css'
 
@@ -5,7 +6,7 @@ import logo_icon from '../../Assets/Vendor.svg'
 import food_image from '../../Assets/food1.png'
 
 
-export const VendorApp = () => {
+export const Login = () => {
   return (
     <div className="split-container">
       <div className="left-image">
@@ -29,7 +30,9 @@ export const VendorApp = () => {
             <button type="submit" className="login-btn">Log In</button>
           </form>
           <div className="signup-link">
-            Don't have an account? <a href="#">Sign up</a>
+            <p>
+             Don't have an account? <Link to="/signup">Sign Up</Link> 
+            </p>
           </div>
           <div className="divider">OR CONTINUE WITH</div>
           <button className="google-btn">Log in with Google</button>

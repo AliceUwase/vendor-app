@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import React from 'react'
 import './SignUp.css'
 
@@ -40,7 +41,10 @@ export const SignUp = () => {
           <div className="divider">Or continue with</div>
           <button className="google-btn">Sign up with Google</button>
           <div className="login-link">
-            Already have an account? <a href="#">Log In</a>
+            <p>
+              Already have an account? <Link to="/login">Log In</Link>
+
+            </p>
           </div>
         </div>
       </div>
