@@ -4,6 +4,7 @@ import Logo_icon from '../../Assets/logo.svg';
 
 export const Landing= () => {
     const carouselRef = useRef(null);
+    const vendorCarouselRef = useRef(null);
 
     const scrollLeft = () => {
         if (carouselRef.current) {
@@ -18,6 +19,26 @@ export const Landing= () => {
         if (carouselRef.current) {
             carouselRef.current.scrollBy({
                 left: 300,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const scrollVendorLeft = () => {
+        if (vendorCarouselRef.current) {
+            const cardWidth = vendorCarouselRef.current.scrollWidth / 5; // Total cards divided by total width
+            vendorCarouselRef.current.scrollBy({
+                left: -cardWidth,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const scrollVendorRight = () => {
+        if (vendorCarouselRef.current) {
+            const cardWidth = vendorCarouselRef.current.scrollWidth / 5; // Total cards divided by total width
+            vendorCarouselRef.current.scrollBy({
+                left: cardWidth,
                 behavior: 'smooth'
             });
         }
@@ -74,7 +95,7 @@ export const Landing= () => {
                     </div>
                     
                     <div className="vendor-card">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136" alt="Divine Catering" className="vendor-image"/>
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0ZXJpbmd8ZW58MHx8MHx8fDA%3D" alt="Divine Catering" className="vendor-image"/>
                         <div className="vendor-info">
                             <h3 className="vendor-name">Divine Catering</h3>
                             <div className="vendor-rating">
@@ -89,7 +110,7 @@ export const Landing= () => {
                     </div>
                     
                     <div className="vendor-card">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Delizia Italiana" className="vendor-image"/>
+                        <img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGljZSUyMGNyZWFtJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="Delizia Italiana" className="vendor-image"/>
                         <div className="vendor-info">
                             <h3 className="vendor-name">Delizia Italiana</h3>
                             <div className="vendor-rating">
@@ -152,15 +173,87 @@ export const Landing= () => {
 
         {/* Specials */}
         <section className="specials">
-            <div className="specials-card">
-                <h3>Today's </h3>
-                <h3>Specials</h3>
-                <p>50% OFF</p>
+            <div className="specials-promo">
+                <div className="specials-header">
+                    <h3 className="specials-title-cursive">Today's</h3>
+                    <h3 className="specials-title-bold">Specials</h3>
+                </div>
+                <div className="countdown-timer">
+                    <span>11 days : 10 hr : 20 min</span>
+                </div>
+                <div className="sale-section">
+                  <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHNhbGV8ZW58MHx8MHx8fDA%3D" alt="Delicious Food" className="sale-image" />
+                </div>
             </div>
-            <div className="specials-list">
-                <div className="special-item">Mama Pizzalo</div>
-                <div className="special-item">Isa fOODtruck</div>
-                <div className="special-item">Lamane Bakery</div>
+            <div className="specials-vendors-container">
+                <button className="vendor-carousel-nav vendor-carousel-left" onClick={scrollVendorLeft}>‹</button>
+                <div className="specials-vendors" ref={vendorCarouselRef}>
+                    <div className="vendor-special-card">
+                        <img src="https://plus.unsplash.com/premium_photo-1726837215946-9a40e63a0e34?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWZyaWNhbiUyMHBpenplcmlhfGVufDB8fDB8fHww" alt="Mama Pizzalo" className="vendor-special-image"/>
+                        <div className="vendor-special-info">
+                            <span className="vendor-category">Restaurant</span>
+                            <h4 className="vendor-special-name">Mama Pizzalo</h4>
+                            <span className="vendor-detail">Buy 1 get 2 free</span>
+                            <div className="vendor-pricing">
+                                <span className="original-price">RF15,000</span>
+                                <span className="current-price">RF7,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="vendor-special-card">
+                        <img src="https://images.unsplash.com/photo-1641638148267-6b157a285fd3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bG9jYWwlMjBncmlsbHxlbnwwfHwwfHx8MA%3D%3D" alt="Issa's Food Truck" className="vendor-special-image"/>
+                        <div className="vendor-special-info">
+                            <span className="vendor-category">Food Truck</span>
+                            <h4 className="vendor-special-name">Issa grill</h4>
+                            <span className="vendor-detail">Whole Chicken</span>
+                            <div className="vendor-pricing">
+                                <span className="original-price">RF12,000</span>
+                                <span className="current-price">RF10,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="vendor-special-card">
+                        <img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJha2VyeXxlbnwwfHwwfHx8MA%3D%3D" alt="Lamane Bakery" className="vendor-special-image"/>
+                        <div className="vendor-special-info">
+                            <span className="vendor-category">Bakery</span>
+                            <h4 className="vendor-special-name">Lamane Bakery</h4>
+                            <span className="vendor-detail">Brown Bread</span>
+                            <div className="vendor-pricing">
+                                <span className="original-price">RF3,000</span>
+                                <span className="current-price">RF1,500</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="vendor-special-card">
+                        <img src="https://images.unsplash.com/photo-1514481538271-cf9f99627ab4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y29mZmVlJTIwJTI2JTIwcGFzdHJpZXN8ZW58MHx8MHx8fDA%3D" alt="Delicious Delights" className="vendor-special-image"/>
+                        <div className="vendor-special-info">
+                            <span className="vendor-category">Cafe</span>
+                            <h4 className="vendor-special-name">Delicious Delights</h4>
+                            <span className="vendor-detail">Coffee & Pastries</span>
+                            <div className="vendor-pricing">
+                                <span className="original-price">RF12,000</span>
+                                <span className="current-price">RF7,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="vendor-special-card">
+                        <img src="https://images.unsplash.com/photo-1630960411440-10f7b59717ba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnJlc2glMjBtYXJrZXR8ZW58MHx8MHx8fDA%3D" alt="Fresh Market" className="vendor-special-image"/>
+                        <div className="vendor-special-info">
+                            <span className="vendor-category">Market</span>
+                            <h4 className="vendor-special-name">Fresh Market</h4>
+                            <span className="vendor-detail">Organic Produce</span>
+                            <div className="vendor-pricing">
+                                <span className="original-price">RF8,000</span>
+                                <span className="current-price">RF3,800</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button className="vendor-carousel-nav vendor-carousel-right" onClick={scrollVendorRight}>›</button>
             </div>
         </section>
 
