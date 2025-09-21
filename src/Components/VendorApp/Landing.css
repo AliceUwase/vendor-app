@@ -20,8 +20,8 @@
 .navbar-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 60px; 
+    justify-content: space-between;
+    width: 100%;
     max-width: 1200px; 
     margin: 0 auto; 
     padding: 0 40px;
@@ -33,6 +33,21 @@
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
+    margin-right: auto;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.logo-text .vendor {
+    color: #1f2937;
+}
+
+.logo-text .app {
+    color: #0891b2;
 }
 
 .logo-img {
@@ -47,7 +62,9 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-links li {
@@ -77,7 +94,7 @@
     transition: all 0.2s ease;
     flex-shrink: 0;
     white-space: nowrap;
-    margin-right: auto 18px;
+    margin-left: auto;
 }
 
 .nav-btn:hover {
@@ -139,26 +156,137 @@
 .popular-vendors {
   max-width: 1100px;
   margin: 40px auto;
+  /* background: #f0f8e8; */
+  border-radius: 16px;
+  padding: 32px 24px;
 }
 
 .popular-vendors h2 {
-  font-size: 1.6rem;
-  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #1f2937;
+}
+
+.vendor-carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.carousel-nav {
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.carousel-nav:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
 }
 
 .vendor-carousel {
   display: flex;
-  gap: 24px;
+  gap: 70px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 8px 0;
+  flex: 1;
+}
+
+.vendor-carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .vendor-card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 24px;
-  min-width: 180px;
-  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 0;
+  min-width: 280px;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vendor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.vendor-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.vendor-info {
+  padding: 16px;
+}
+
+.vendor-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.vendor-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.stars {
+  color: #10b981;
+  font-size: 1rem;
+}
+
+.rating-number {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.vendor-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.distance {
+  color: #6b7280;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
   font-weight: 500;
+}
+
+.status-open {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-closed {
+  background: #fee2e2;
+  color: #dc2626;
 }
 
 /* Promotions & Community */
@@ -169,29 +297,80 @@
   margin: 40px auto;
 }
 
-.promo-card, .community-card {
-  background: #fff;
+.promo-card {
+  background: #e0f2fe;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 32px 24px;
+  padding: 0;
   flex: 1;
-  text-align: center;
+  display: flex;
+  overflow: hidden;
+  min-height: 300px;
 }
 
-.promo-card button, .community-card button {
-  background: #00bcd4;
+.community-card {
+  background: #fce7f3;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 0;
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.promo-content {
+  flex: 1;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.promo-text h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.promo-text h3:last-child {
+  margin-bottom: 24px;
+}
+
+.promo-btn {
+  background: #0891b2;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 10px 24px;
+  border-radius: 8px;
+  padding: 12px 24px;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  margin-top: 16px;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  align-self: flex-start;
 }
 
-.promo-card button:hover, .community-card button:hover {
-  background: #0097a7;
+.promo-btn:hover {
+  background: #0e7490;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.promo-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 12px 12px 0;
 }
 
 /* Order Online */
@@ -338,7 +517,7 @@
   padding: 12px 16px;
 }
 
-/* Responsive */
+/* Responsive
 @media (max-width: 900px) {
   .hero, .specials, .promo-container {
     flex-direction: column;
@@ -358,4 +537,62 @@
     gap: 16px;
     padding: 16px;
   }
-}
+  
+  .navbar-container {
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 16px;
+  }
+  
+  .nav-links {
+    position: static;
+    transform: none;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .logo {
+    margin-right: 0;
+    justify-content: center;
+  }
+  
+  .nav-btn {
+    margin-left: 0;
+  }
+  
+  .vendor-carousel-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .carousel-nav {
+    display: none;
+  }
+  
+  .vendor-carousel {
+    gap: 16px;
+    padding: 0;
+  }
+  
+  .vendor-card {
+    min-width: 240px;
+  }
+  
+  .popular-vendors {
+    padding: 24px 16px;
+  }
+  
+  .promo-card, .community-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .promo-image img {
+    border-radius: 0 0 12px 12px;
+    height: 200px;
+  }
+  
+  .promo-content {
+    padding: 24px 20px;
+  }
+} */
