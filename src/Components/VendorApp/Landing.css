@@ -1,0 +1,361 @@
+.Landing-page {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fafafa;
+  color: #222;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    width: 100vw;
+    min-height: 60px; 
+    margin: 0;
+    border-radius: 0; 
+}
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 40px;
+    min-height: 64px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.logo-img {
+  height:40px; 
+  width: auto;
+  margin-right: 8px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.nav-links li {
+    font-size: 0.95rem; 
+    font-weight: 500;
+    color: #000000;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+.nav-links li:hover {
+    color: #0891b2; 
+}
+.nav-links li:first-child {
+    color: #1f2937; 
+}
+
+.nav-btn {
+    background: #0891b2; 
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-right: auto 18px;
+}
+
+.nav-btn:hover {
+  background: #0e7490;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px;
+  background: #e0f7fa;
+  border-radius: 16px;
+  margin: 32px auto;
+  max-width: 1100px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+.hero-content {
+  max-width: 500px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+}
+
+.hero-btn {
+  background: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.hero-btn:hover {
+  background: #0097a7;
+}
+
+.hero-img {
+  width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* Popular Vendors */
+.popular-vendors {
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+.popular-vendors h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.vendor-carousel {
+  display: flex;
+  gap: 24px;
+}
+
+.vendor-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 24px;
+  min-width: 180px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Promotions & Community */
+.promo-container {
+  display: flex;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+.promo-card, .community-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 32px 24px;
+  flex: 1;
+  text-align: center;
+}
+
+.promo-card button, .community-card button {
+  background: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background 0.2s;
+}
+
+.promo-card button:hover, .community-card button:hover {
+  background: #0097a7;
+}
+
+/* Order Online */
+.order-online {
+  max-width: 1100px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.order-online img {
+  width: 220px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 16px;
+}
+
+.order-online button {
+  background: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background 0.2s;
+}
+
+.order-online button:hover {
+  background: #0097a7;
+}
+
+/* Specials */
+.specials {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: flex;
+  gap: 24px;
+}
+
+.specials-card {
+  background: #00bcd4;
+  color: #fff;
+  border-radius: 12px;
+  padding: 32px 24px;
+  min-width: 180px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.specials-list {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.special-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 18px 24px;
+  min-width: 120px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Partners */
+.partners {
+  max-width: 1100px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.partner-logos {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.partner-logo {
+  width: 48px;
+  height: 48px;
+  background: #e0f7fa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #00bcd4;
+  font-size: 1.1rem;
+}
+
+/* Testimonials */
+.testimonials {
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 32px 24px;
+}
+
+.testimonials blockquote {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.testimo-author {
+  font-weight: bold;
+  color: #00bcd4;
+}
+
+/* FAQ */
+.faq {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 32px 24px;
+}
+
+.faq h3 {
+  margin-bottom: 12px;
+}
+
+.faq-list {
+  margin-top: 16px;
+}
+
+.faq-item {
+  margin-bottom: 18px;
+  background: #e0f7fa;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero, .specials, .promo-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-img {
+    width: 100%;
+    height: 180px;
+    margin-top: 24px;
+  }
+  .specials-list {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+}
