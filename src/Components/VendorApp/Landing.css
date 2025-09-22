@@ -691,22 +691,73 @@
 
 .partner-logos {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   justify-content: center;
-  margin-top: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
 }
 
 .partner-logo {
-  width: 48px;
-  height: 48px;
-  background: #e0f7fa;
-  border-radius: 50%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: #00bcd4;
-  font-size: 1.1rem;
+  gap: 8px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 100px;
+}
+
+.partner-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.brand-icon {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+.brand-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #374151;
+  text-align: center;
+}
+
+/* Brand-specific colors */
+.mcdonalds {
+  color: #ffc72c;
+}
+
+.kfc {
+  color: #e4002b;
+}
+
+.starbucks {
+  color: #00704a;
+}
+
+.subway {
+  color: #005f3c;
+}
+
+.dominos {
+  color: #e31837;
+}
+
+.pizza {
+  color: #ff6b35;
+}
+
+.burger {
+  color: #8b4513;
+}
+
+.icecream {
+  color: #ff69b4;
 }
 
 /* Testimonials */

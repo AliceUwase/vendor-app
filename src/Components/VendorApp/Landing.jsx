@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import "./Landing.css";
 import Logo_icon from '../../Assets/logo.svg';
+// import { SiMcDonalds, SiKfc, SiStarbucks, SiSubway, SiDomino } from "react-icons/si";
+// import { FaPizzaSlice, FaHamburger, FaIceCream } from "react-icons/fa";
 
 export const Landing= () => {
     const carouselRef = useRef(null);
@@ -257,7 +259,7 @@ export const Landing= () => {
             </div>
         </section>
 
-        {/* Parterns */}
+        {/* Partners */}
         <section className="partners">
             <h3>Our Partners</h3>
             <div className="partner-logos">
