@@ -1,8 +1,6 @@
 import React, { useRef } from "react";
 import "./Landing.css";
 import Logo_icon from '../../Assets/logo.svg';
-// import { SiMcDonalds, SiKfc, SiStarbucks, SiSubway, SiDomino } from "react-icons/si";
-// import { FaPizzaSlice, FaHamburger, FaIceCream } from "react-icons/fa";
 
 export const Landing= () => {
     const carouselRef = useRef(null);
@@ -254,7 +252,7 @@ export const Landing= () => {
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
                 <button className="vendor-carousel-nav vendor-carousel-right" onClick={scrollVendorRight}>›</button>
             </div>
         </section>
@@ -263,9 +261,12 @@ export const Landing= () => {
         <section className="partners">
             <h3>Our Partners</h3>
             <div className="partner-logos">
-                <span className="partner-logo">Logo1</span>
-                <span className="partner-logo">Logo1</span>
-                <span className="partner-logo">Logo1</span>
+                <img src={require("../../Assets/Bakers_Delight-Logo.svg").default} alt="Amy's Kitchen" className="partner-logo"/>
+                <img src={require("../../Assets/Chick-fil-A-Logo.svg").default} alt="Amy's Kitchen" className="partner-logo"/>
+                <img src={require("../../Assets/Jamba_Juice-Logo.svg").default} alt="Amy's Kitchen" className="partner-logo"/>
+                <img src={require("../../Assets/Mountain_Dew-Logo.svg").default} alt="Amy's Kitchen" className="partner-logo"/>
+                <img src={require("../../Assets/ThaiBev-Logo.svg").default} alt="Amy's Kitchen" className="partner-logo"/>
+                <img src={require("../../Assets/Amy's_Kitchen-Logo.svg").default} alt="Amy's Kitchen" className="partner-logo"/>
             </div>
         </section>
 
