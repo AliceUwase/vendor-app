@@ -33,12 +33,12 @@ export const SignUp = () => {
             <div className="checkbox-row">
               <input type="checkbox" id="terms" />
               <label htmlFor="terms">
-                I agree to the <a href="#">Terms and Privacy Policy</a>
+              I agree to the <a href="/terms-and-privacy">Terms and Privacy Policy</a>
               </label>
             </div>
             <button type="submit" className="signup-btn">Sign Up</button>
           </form>
-          <div className="divider">Or continue with</div>
+          <div className="divider">Or</div>
           <button className="google-btn">Sign up with Google</button>
           <div className="login-link">
             <p>
