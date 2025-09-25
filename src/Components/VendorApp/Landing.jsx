@@ -1,10 +1,90 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./Landing.css";
 import Logo_icon from '../../Assets/logo.svg';
 
 export const Landing= () => {
     const carouselRef = useRef(null);
     const vendorCarouselRef = useRef(null);
+    const [openIndex, setOpenIndex] = useState(0);
+    const [testimonialIndex, setTestimonialIndex] = useState(0);
+
+    const testimonials = [
+        {
+            id: 1,
+            text:
+                "The pepperoni pizza was a delightful surprise, featuring a perfectly crispy crust that held up well under a generous layer of flavorful cheese and a zesty, tangy sauce.",
+            rating: 5.0,
+            avatar:
+                "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop",
+        },
+        {
+            id: 2,
+            text:
+                "Absolutely loved the fresh ingredients and quick service. My go-to spot for lunch!",
+            rating: 4.8,
+            avatar:
+                "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=200&auto=format&fit=crop",
+        },
+        {
+            id: 3,
+            text:
+                "Great value and friendly staff. Highly recommend trying their specials!",
+            rating: 4.9,
+            avatar:
+                "https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=200&auto=format&fit=crop",
+        },
+    ];
+
+    const showPrevTestimonial = () => {
+        setTestimonialIndex((prev) =>
+            prev === 0 ? testimonials.length - 1 : prev - 1
+        );
+    };
+
+    const showNextTestimonial = () => {
+        setTestimonialIndex((prev) =>
+            prev === testimonials.length - 1 ? 0 : prev + 1
+        );
+    };
+
+    const faqs = [
+        {
+            id: 1,
+            question: "How do I find businesses near me?",
+            answer:
+                "Simply use the search bar on our homepage or click Browse to explore by category. You can filter results by distance, ratings, and whether businesses are currently open. Our platform automatically shows the closest businesses first, and you can get directions with just one click.",
+        },
+        {
+            id: 2,
+            question: "Is it free for businesses to list their profiles?",
+            answer:
+                "Yes! Creating a basic business profile is completely free. You can add your business information, photos, hours, and contact details at no cost. We believe in supporting local businesses by making it easy and affordable to get discovered by customers in your community.",
+        },
+        {
+            id: 3,
+            question:
+                "How do I know if business information is accurate and up-to-date?",
+            answer:
+                "Business owners can update their information anytime through their dashboard. Customers can also report outdated information or leave reviews about their experiences. We encourage businesses to keep their profiles current and respond to customer feedback to maintain trust in our community.",
+        },
+        {
+            id: 4,
+            question: "Can I save my favorite businesses or leave reviews?",
+            answer:
+                " Absolutely! Create a free account to save your favorite businesses, leave star ratings and written reviews, and get notified about special offers from businesses you follow. Your reviews help other community members make informed decisions and support quality local businesses.",
+        },
+        {
+            id: 5,
+            question:
+                "How do I contact a business directly through the platform?",
+            answer:
+                "Each business profile includes multiple contact options for your convenience. You can click to call their phone number directly, get directions to their location, visit their website, or send them a message through our platform. All contact information is provided by the business owners and updated regularly.",
+        },
+    ];
+
+    const toggleAccordion = (index) => {
+        setOpenIndex((prev) => (prev === index ? -1 : index));
+    };
 
     const scrollLeft = () => {
         if (carouselRef.current) {
@@ -272,44 +352,58 @@ export const Landing= () => {
 
         {/* Testimonials */}
         <section className="testimonials">
-            <blockquote>
-                The service I got was absolutely fantastic. Such an easy way to shop and connect with local vendors.
-            </blockquote>
-            <div className="testimo-author">Jane Doe</div>
+            <button className="testimonial-nav left" onClick={showPrevTestimonial}>‹</button>
+            <div className="testimonial-content">
+                <img
+                    className="testimonial-avatar"
+                    src={testimonials[testimonialIndex].avatar}
+                    alt="Customer avatar"
+                />
+                <p className="testimonial-text">{testimonials[testimonialIndex].text}</p>
+                <div className="testimonial-stars">
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span className="rating-number">({testimonials[testimonialIndex].rating.toFixed(1)})</span>
+                </div>
+            </div>
+            <button className="testimonial-nav right" onClick={showNextTestimonial}>›</button>
         </section>
 
         {/* FAQs */}
-        <section className="faq">
-            <h3>Frequently Asked Questions</h3>
+        <section className="faq" aria-labelledby="faq-heading">
+            <h3 id="faq-heading">Frequently Asked Questions</h3>
             <p>Find quick answers to the most common questions about Vendor App</p>
-            <div className="faq-list">
-                <div className="faq-item">
-                    <strong> How do I sign up as a vendor?</strong>
-                    <p>Click the sign Up button at the top right.</p>
-                </div>
-                <div className="faq-item">
-                    <strong> How do I sign up as a vendor?</strong>
-                    <p>Click the sign Up button at the top right.</p>
-                </div>
-                <div className="faq-item">
-                    <strong> How do I sign up as a vendor?</strong>
-                    <p>Click the sign Up button at the top right.</p>
-                </div>
-                <div className="faq-item">
-                    <strong> How do I sign up as a vendor?</strong>
-                    <p>Click the sign Up button at the top right.</p>
-                </div>
-                <div className="faq-item">
-                    <strong> How do I sign up as a vendor?</strong>
-                    <p>Click the sign Up button at the top right.</p>
-                </div>
-                <div className="faq-item">
-                    <strong> How do I sign up as a vendor?</strong>
-                    <p>Click the sign Up button at the top right.</p>
-                </div>
-                
+            <div className="accordion" role="list">
+                {faqs.map((item, index) => {
+                    const isOpen = openIndex === index;
+                    return (
+                        <div className={`accordion-item ${isOpen ? "open" : ""}`} key={item.id} role="listitem">
+                            <button
+                                className="accordion-header"
+                                aria-expanded={isOpen}
+                                aria-controls={`faq-panel-${item.id}`}
+                                id={`faq-control-${item.id}`}
+                                onClick={() => toggleAccordion(index)}
+                            >
+                                <span className="accordion-title">{item.question}</span>
+                                <span className={`accordion-icon ${isOpen ? "rotate" : ""}`}>⌄</span>
+                            </button>
+                            <div
+                                id={`faq-panel-${item.id}`}
+                                role="region"
+                                aria-labelledby={`faq-control-${item.id}`}
+                                className="accordion-panel"
+                                style={{ maxHeight: isOpen ? "200px" : 0 }}
+                            >
+                                <p>{item.answer}</p>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
-
         </section>
     </div>
     );
