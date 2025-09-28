@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./Landing.css";
 import Logo_icon from '../../Assets/logo.svg';
+import Footer from "./Footer";
 
 export const Landing= () => {
     const carouselRef = useRef(null);
@@ -404,7 +405,9 @@ export const Landing= () => {
                     );
                 })}
             </div>
-        </section>
-    </div>
+		</section>
+
+		<Footer />
+	</div>
     );
 };
