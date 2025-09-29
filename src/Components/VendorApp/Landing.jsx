@@ -2,12 +2,15 @@ import React, { useRef, useState } from "react";
 import "./Landing.css";
 import Logo_icon from '../../Assets/logo.svg';
 import Footer from "./Footer";
+import { SelectionCard } from "./SelectionCard";
+
 
 export const Landing= () => {
     const carouselRef = useRef(null);
     const vendorCarouselRef = useRef(null);
     const [openIndex, setOpenIndex] = useState(0);
     const [testimonialIndex, setTestimonialIndex] = useState(0);
+    const [isSelectionOpen, setIsSelectionOpen] = useState(false);
 
     const testimonials = [
         {
@@ -140,7 +143,8 @@ export const Landing= () => {
                     <li>Best Deals</li>
                     <li>About</li>
                 </ul>
-                <button className="nav-btn">Get Started</button>
+        
+                <button className="nav-btn" onClick={() => setIsSelectionOpen(true)}>Get Started</button>
             </div>
         </nav>
 
@@ -408,6 +412,15 @@ export const Landing= () => {
 		</section>
 
 		<Footer />
+
+        {isSelectionOpen && (
+            <div className="modal-overlay" role="dialog" aria-modal="true" aria-label="Choose your path">
+                <div className="modal">
+                    <button className="modal-close" aria-label="Close" onClick={() => setIsSelectionOpen(false)}>×</button>
+                    <SelectionCard />
+                </div>
+            </div>
+        )}
 	</div>
     );
 };
