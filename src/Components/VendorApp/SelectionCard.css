@@ -62,7 +62,11 @@
   transition: background 0.2s, color 0.2s;
 }
 .login-btn, .signup-btn {
-  padding: 8px 20px;
+  padding: 6px 18px;
+  font-size: 16px;
+  min-width: 100px;
+  height: 35px;
+  box-sizing: border-box;
 }
 .login-btn {
   background: #249FBC;
@@ -72,4 +76,5 @@
   background: #fff;
   color: #249FBC;
   border: 1px solid #249FBC;
+  
 }
