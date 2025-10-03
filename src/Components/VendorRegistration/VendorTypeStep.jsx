@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaUsers } from 'react-icons/fa';
+import { FaUsers, FaArrowRight } from 'react-icons/fa';
 
 export const VendorTypeStep = ({ data, updateData, onNext }) => {
     const handleVendorTypeSelect = (type) => {
@@ -53,7 +53,7 @@ export const VendorTypeStep = ({ data, updateData, onNext }) => {
                     onClick={handleNext}
                     disabled={!data.vendorType}
                 >
-                    Next Step &gt;
+                    Next Step <FaArrowRight style={{ marginRight: '0.5rem' }}  />
                 </button>
             </div>
         </div>

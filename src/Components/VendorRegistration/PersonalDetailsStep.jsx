@@ -1,4 +1,5 @@
 import React from 'react';
+import {FaArrowLeft, FaArrowRight} from 'react-icons/fa'
 
 export const PersonalDetailsStep = ({ data, updateData, onNext, onBack }) => {
     const handleInputChange = (field, value) => {
@@ -123,14 +124,14 @@ export const PersonalDetailsStep = ({ data, updateData, onNext, onBack }) => {
 
             <div className="step-footer">
                 <button className="back-button" onClick={onBack}>
-                    &lt; Previous Step
+                    <FaArrowLeft style={{ marginRight: '0.5rem' }} Previous Step />
                 </button>
                 <button 
                     className="next-button"
                     onClick={handleNext}
                     disabled={!data.firstName || !data.lastName || !data.email || !data.phone || (data.tinOption === 'now' && !data.tinNumber)}
                 >
-                    Next Step &gt;
+                    Next Step <FaArrowRight style={{ marginRight: '0.5rem' }}  /> 
                 </button>
             </div>
         </div>

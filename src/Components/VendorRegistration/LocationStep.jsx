@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBuilding, FaMapMarkerAlt, FaHome, FaUniversity, FaIndustry } from 'react-icons/fa';
+import { FaBuilding, FaMapMarkerAlt, FaHome, FaUniversity, FaIndustry, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 
 export const LocationStep = ({ data, updateData, onNext, onBack }) => {
@@ -46,19 +46,19 @@ export const LocationStep = ({ data, updateData, onNext, onBack }) => {
                         </div>
                     ))}
                 </div>
-                <a href="#" className="overview-map-link">+ Overview Map</a>
+                
             </div>
 
             <div className="step-footer">
                 <button className="back-button" onClick={onBack}>
-                    &lt; Previous Step
+                    <FaArrowLeft style={{ marginRight: '0.5rem' }} Previous Step /> 
                 </button>
                 <button 
                     className="next-button"
                     onClick={handleNext}
                     disabled={!data.location}
                 >
-                    Next Step &gt;
+                    Next Step <FaArrowRight style={{ marginRight: '0.5rem' }}  />
                 </button>
             </div>
         </div>

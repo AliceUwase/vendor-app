@@ -95,7 +95,7 @@
 }
 
 .step-item.active .step-title {
-    color: #007bff;
+    color: #0891b2;
     font-weight: 600;
 }
 
@@ -238,7 +238,7 @@
 }
 
 .location-card:hover {
-    border-color: #007bff;
+    border-color: #0891b2;
     box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
 }
 
@@ -264,19 +264,7 @@
     color: #212529;
 }
 
-.overview-map-link {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-}
 
-.overview-map-link:hover {
-    text-decoration: underline;
-}
 
 /* Form Styles */
 .form-group {
@@ -389,8 +377,8 @@
 
 .add-more-button {
     background-color: #f8f9fa;
-    color: #007bff;
-    border: 2px solid #007bff;
+    color: #0891b2;
+    border: 2px solid #0891b2;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-size: 0.95rem;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {FaArrowLeft, FaArrowRight} from 'react-icons/fa'
 
 export const VendorDetailsStep = ({ data, updateData, onNext, onBack }) => {
     const [teamMembers, setTeamMembers] = useState([
@@ -83,7 +84,7 @@ export const VendorDetailsStep = ({ data, updateData, onNext, onBack }) => {
 
             <div className="step-footer">
                 <button className="back-button" onClick={onBack}>
-                    &lt; Previous Step
+                    <FaArrowLeft style={{ marginRight: '0.5rem' }} Previous Step /> 
                 </button>
                 <button 
                     className="next-button"
@@ -91,7 +92,7 @@ export const VendorDetailsStep = ({ data, updateData, onNext, onBack }) => {
                     disabled={!data.vendorName || !teamMembers[0].firstName || !teamMembers[0].lastName}
                 >
                     {/* "&gt;" is the HTML entity for the ">" (greater than) character */}
-                    Next Step &gt;
+                    Next Step <FaArrowRight style={{ marginRight: '0.5rem' }}  />
                 </button>
             </div>
         </div>
