@@ -19,7 +19,7 @@ export  const SelectionCard = () => {
                     <p>Manage products, orders, and customers interaction effectively.</p>
                     <div className="card-actions">
                         <Link to="login" className="card-btn login-btn">Log In</Link>
-                        <Link to="signup" className="card-btn signup-btn">Sign Up</Link>
+                        <Link to="vendor-registration" className="card-btn signup-btn">Sign Up</Link>
                     </div>
                 </div>
                 <div className="role-card">

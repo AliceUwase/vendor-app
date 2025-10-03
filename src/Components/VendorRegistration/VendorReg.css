@@ -1,0 +1,543 @@
+/* Main Container */
+.vendor-registration-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background-color: #ffffff;
+    border-right: 1px solid #e9ecef;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    margin-bottom: 3rem;
+}
+
+.app-logo img {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #212529;
+}
+
+.logo-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+}
+
+.steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.step-item:hover {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding-left: 0.5rem;
+}
+
+.step-indicator {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+}
+
+.step-number {
+    background-color: #6c757d;
+    color: white;
+}
+
+.step-item.active .step-number {
+    background-color: #007bff;
+    color: white;
+}
+
+.step-item.completed .step-indicator {
+    background-color: #28a745;
+    color: white;
+}
+
+.checkmark {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.step-title {
+    font-size: 0.95rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.step-item.active .step-title {
+    color: #007bff;
+    font-weight: 600;
+}
+
+.step-item.completed .step-title {
+    color: #28a745;
+    font-weight: 500;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Step Container */
+.step-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Step Header */
+.step-header {
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.step-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #212529;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+}
+
+.step-header p {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin: 0 0 1rem 0;
+    line-height: 1.4;
+}
+
+.help-link {
+    color: #0891b2;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    margin: 0;
+}
+
+.help-link:hover {
+    text-decoration: underline;
+}
+
+/* Step Content */
+.step-content {
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+/* Vendor Type Selection */
+.vendor-type-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+}
+
+.vendor-type-card {
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.vendor-type-card:hover {
+    border-color: #0891b2;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.vendor-type-card.selected {
+    border-color: #0891b2;
+    background-color: #f8f9ff;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+.vendor-type-icon {
+    margin-bottom: 1rem;
+    color: #6c757d;
+    display: flex;
+    justify-content: center;
+}
+
+.vendor-type-card.selected .vendor-type-icon {
+    color: #0891b2;
+}
+
+.vendor-type-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #212529;
+    margin: 0;
+}
+
+/* Location Grid */
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+}
+
+.location-card {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: white;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.location-card:hover {
+    border-color: #007bff;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
+}
+
+.location-card.selected {
+    border-color: #28a745;
+    background-color: #f8fff9;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.2);
+}
+
+.location-icon {
+    margin-bottom: 0.75rem;
+    color: #6c757d;
+    font-size: 1.5rem;
+}
+
+.location-card.selected .location-icon {
+    color: #28a745;
+}
+
+.location-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #212529;
+}
+
+.overview-map-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.overview-map-link:hover {
+    text-decoration: underline;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    background-color: white;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.form-input::placeholder {
+    color: #6c757d;
+}
+
+/* Radio Button Styles */
+.radio-group {
+    margin-bottom: 1.5rem;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+}
+
+.radio-input {
+    width: 18px;
+    height: 18px;
+    accent-color: #007bff;
+}
+
+.radio-label {
+    font-size: 0.95rem;
+    color: #212529;
+    cursor: pointer;
+}
+
+/* Button Styles */
+.step-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: #6c757d;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-button:hover {
+    color: #1e6a96;
+    text-decoration: underline;
+}
+
+.next-button {
+    background-color: #0891b2;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.next-button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.next-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.add-more-button {
+    background-color: #f8f9fa;
+    color: #007bff;
+    border: 2px solid #007bff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+}
+
+.add-more-button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Success Page */
+.success-container {
+    text-align: center;
+    padding: 3rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #28a745;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.success-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 1rem;
+}
+
+.success-message {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.success-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    border: 2px solid #e9ecef;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vendor-registration-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .steps-list {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 1rem;
+    }
+    
+    .step-item {
+        flex-shrink: 0;
+        min-width: 120px;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .location-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .step-footer {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .next-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .vendor-type-selection {
+        gap: 1rem;
+    }
+    
+    .vendor-type-card {
+        padding: 1.5rem;
+    }
+}
