@@ -25,7 +25,12 @@ export const Sidebar = ({ currentStep }) => {
                     >
                         <div className="step-indicator">
                             {step.completed ? (
-                                <div className="checkmark">✓</div>
+                                <div className="checkmark">
+                                   
+                                    <span style={{ display: 'flex', alignItems: 'center' }}>
+                                        {React.createElement(require('react-icons/fa').FaCheck)}
+                                    </span>
+                                </div>
                             ) : (
                                 <div className="step-number">{step.id}</div>
                             )}

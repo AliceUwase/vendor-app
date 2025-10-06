@@ -68,15 +68,15 @@
     flex-shrink: 0;
 }
 
-.step-number {
+/* .step-number {
     background-color: #6c757d;
     color: white;
-}
+} */
 
-.step-item.active .step-number {
+/* .step-item.active .step-number {
     background-color: #007bff;
     color: white;
-}
+} */
 
 .step-item.completed .step-indicator {
     background-color: #28a745;
