@@ -1,0 +1,236 @@
+
+.review-form-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 16px 72px;
+    color: #1f2937; 
+}
+
+.review-form-card {
+    background: transparent; 
+}
+
+.form-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin: 0 0 8px;
+}
+
+.form-subtitle {
+    text-align: center;
+    color: #6b7280; 
+    margin: 0 0 24px;
+}
+
+.form-content {
+    margin-top: 12px;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.center { text-align: center; }
+
+.star-rating {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.star {
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: #d1d5db; 
+    font-size: 32px;
+    cursor: pointer;
+    transition: color 120ms ease-in-out, transform 120ms ease-in-out;
+}
+
+.star:hover { 
+transform: translateY(-1px);
+ }
+.star.active { 
+color: #f59e0b;  
+}
+
+.form-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #e5e7eb; /* gray-200 */
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 14px;
+    background: #fff;
+}
+
+textarea.form-input {
+    min-height: 180px;
+    background: #f9fafb; /* gray-50 */
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 640px) {
+    .form-row { grid-template-columns: 1fr 1fr; }
+}
+
+.submit-btn {
+    appearance: none;
+    border: none;
+    background: #3b82f6; /* blue-500 */
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 8px;
+    min-width: 220px;
+    cursor: pointer;
+    transition: background 120ms ease-in-out, transform 120ms ease-in-out, opacity 120ms ease-in-out;
+    display: block;
+    margin: 24px auto 0;
+}
+
+.submit-btn:hover { background: #2563eb; transform: translateY(-1px); }
+.submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+
+.review-form__container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 16px 72px;
+    color: #1f2937; 
+}
+
+.review-form__title {
+	text-align: center;
+	font-size: 28px;
+	font-weight: 700;
+	letter-spacing: 0.3px;
+	margin: 0 0 8px;
+}
+
+.review-form__subtitle {
+	text-align: center;
+	color: #6b7280; /* gray-500 */
+	margin: 0 0 24px;
+}
+
+.review-form__section {
+	margin-bottom: 20px;
+}
+
+.review-form__label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+
+.review-form__stars {
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	margin-top: 8px;
+}
+
+.star {
+	appearance: none;
+	background: transparent;
+	border: none;
+	color: #d1d5db; /* gray-300 */
+	font-size: 32px;
+	cursor: pointer;
+	transition: color 120ms ease-in-out, transform 120ms ease-in-out;
+}
+
+.star:hover {
+	transform: translateY(-1px);
+}
+
+.star--active {
+	color: #f59e0b; /* amber-500 */
+}
+
+.review-form__textarea {
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid #e5e7eb; /* gray-200 */
+	border-radius: 8px;
+	padding: 12px 14px;
+	font-size: 14px;
+	min-height: 160px;
+	background: #f9fafb; /* gray-50 */
+}
+
+.review-form__row {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+}
+
+@media (min-width: 640px) {
+	.review-form__row {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.review-form__input {
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	padding: 12px 14px;
+	font-size: 14px;
+	background: #fff;
+}
+
+.review-form__error {
+	color: #dc2626; /* red-600 */
+	font-size: 12px;
+	margin-top: 6px;
+}
+
+.review-form__actions {
+	display: flex;
+	justify-content: center;
+	margin-top: 24px;
+}
+
+.review-form__submit {
+	appearance: none;
+	border: none;
+	background: #3b82f6; /* blue-500 */
+	color: white;
+	font-weight: 600;
+	padding: 12px 20px;
+	border-radius: 8px;
+	min-width: 220px;
+	cursor: pointer;
+	transition: background 120ms ease-in-out, transform 120ms ease-in-out, opacity 120ms ease-in-out;
+}
+
+.review-form__submit:hover {
+	background: #2563eb; /* blue-600 */
+	transform: translateY(-1px);
+}
+
+.review-form__submit:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+	transform: none;
+}
+
+
