@@ -5,6 +5,7 @@ import { SignUp } from './Components/VendorApp/SignUp';
 import { Landing } from './Components/VendorApp/Landing';
 import VendorRegistration from './Components/VendorRegistration/VendorReg';
 import { ReviewForm } from './Components/VendorApp/ReviewForm';
+import { VendorDetails } from './Components/VendorApp/VendorDetails';
 
 
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/landing" element={<Landing />} />
         <Route path="/vendor-registration" element={<VendorRegistration />} />
         <Route path="/ReviewForm" element={<ReviewForm />} />
+        <Route path="/vendorDetails" element={<VendorDetails />} />
       </Routes>
       </Router>
   );

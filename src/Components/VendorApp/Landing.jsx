@@ -164,7 +164,7 @@ export const Landing= () => {
             <div className="vendor-carousel-container">
                 <button className="carousel-nav carousel-nav-left" onClick={scrollLeft}>‹</button>
                 <div className="vendor-carousel" ref={carouselRef}>
-                    <div className="vendor-card">
+                    <div className="vendor-card" onClick={() => window.location.assign('/vendor/lamane-bakery')} role="button" tabIndex={0}>
                         <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a" alt="Lamane Bakery" className="vendor-image"/>
                         <div className="vendor-info">
                             <h3 className="vendor-name">Lamane Bakery</h3>
@@ -179,7 +179,7 @@ export const Landing= () => {
                         </div>
                     </div>
                     
-                    <div className="vendor-card">
+                    <div className="vendor-card" onClick={() => window.location.assign('/vendor/divine-catering')} role="button" tabIndex={0}>
                         <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0ZXJpbmd8ZW58MHx8MHx8fDA%3D" alt="Divine Catering" className="vendor-image"/>
                         <div className="vendor-info">
                             <h3 className="vendor-name">Divine Catering</h3>
@@ -194,7 +194,7 @@ export const Landing= () => {
                         </div>
                     </div>
                     
-                    <div className="vendor-card">
+                    <div className="vendor-card" onClick={() => window.location.assign('/vendor/delizia-italiana')} role="button" tabIndex={0}>
                         <img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGljZSUyMGNyZWFtJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="Delizia Italiana" className="vendor-image"/>
                         <div className="vendor-info">
                             <h3 className="vendor-name">Delizia Italiana</h3>
