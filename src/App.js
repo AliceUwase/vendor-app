@@ -6,6 +6,7 @@ import { Landing } from './Components/VendorApp/Landing';
 import VendorRegistration from './Components/VendorRegistration/VendorReg';
 import { ReviewForm } from './Components/VendorApp/ReviewForm';
 import { VendorDetails } from './Components/VendorApp/VendorDetails';
+import { BrowsePage } from './Components/VendorApp/BrowsePage';
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/vendor-registration" element={<VendorRegistration />} />
         <Route path="/ReviewForm" element={<ReviewForm />} />
         <Route path="/vendorDetails" element={<VendorDetails />} />
+        <Route path="/browsePage" element={<BrowsePage />} />
       </Routes>
       </Router>
   );
