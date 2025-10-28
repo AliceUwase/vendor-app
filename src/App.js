@@ -8,7 +8,7 @@ import { ReviewForm } from './Components/VendorApp/ReviewForm';
 import { VendorDetails } from './Components/VendorApp/VendorDetails';
 import { BrowsePage } from './Components/VendorApp/BrowsePage';
 import { AllCategories } from './Components/VendorApp/AllCategories';
-
+import { AllVendors } from './Components/VendorApp/AllVendors';
 
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
         <Route path="/vendorDetails" element={<VendorDetails />} />
         <Route path="/browsePage" element={<BrowsePage />} />
         <Route path="/allCategories" element={<AllCategories />} />
+        <Route path="/allVendors" element={<AllVendors />} />
       </Routes>
       </Router>
   );
