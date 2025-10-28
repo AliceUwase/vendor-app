@@ -18,7 +18,7 @@ export const PersonalDetailsStep = ({ data, updateData, onNext, onBack }) => {
     const handleNext = () => {
         if (data.firstName && data.lastName && data.email && data.phone) {
             if (data.tinOption === 'now' && !data.tinNumber) {
-                return; // Don't proceed if TIN is required but not provided
+                return; 
             }
             onNext();
         }

@@ -3,11 +3,12 @@ import Logo_icon from '../../Assets/logo.svg';
 import { SelectionCard } from "./SelectionCard";
 import './BrowsePage.css';
 import { FaSearch, FaArrowRight } from "react-icons/fa";
+import Footer from "./Footer";
 
 
 
 export const BrowsePage = () => {
-  const [isSelectionOpen, setIsSelectionOpen] = useState(false);
+    const [isSelectionOpen, setIsSelectionOpen] = useState(false);
 
   return (
     <div className='Browse-Page'>
@@ -78,7 +79,7 @@ export const BrowsePage = () => {
                 </button>
             </div>
 
-            {/* Popular Vendors Section */}
+            {/* Popular Venture  Section */}
             <div className="vendors-section">
                 <h2 className="section-title">Popular Vendors</h2>
                 <div className="vendors-grid">
@@ -147,8 +148,41 @@ export const BrowsePage = () => {
                     <FaArrowRight color="#0891b2" size={16} />
                 </button>
             </div>
+
+            {/* AD Section */}
+            <div className="grow-business-section">
+                <div className="grow-business-content">
+                    <div className="grow-business-illustration">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=400&fit=crop" alt="Business growth illustration" />
+                        
+                    </div>
+                    <div className="grow-business-text">
+                        <h2 className="grow-business-title">Grow Your Business With Us</h2>
+                        <p className="grow-business-description">
+                            Join our platform to reach thousands of potential customers. It's time to elevate your local presence.
+                        </p>
+                        <ul className="grow-business-features">
+                            <li className="feature-item">
+                                <span className="checkmark">✓</span>
+                                Easy setup and management
+                            </li>
+                            <li className="feature-item">
+                                <span className="checkmark">✓</span>
+                                Expand your customer reach
+                            </li>
+                            <li className="feature-item">
+                                <span className="checkmark">✓</span>
+                                Boost your online visibility
+                            </li>
+                        </ul>
+                        <button className="get-started-btn">Get Started Now</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+            <Footer />
+            </div>
+            
     
   )
 }
