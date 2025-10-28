@@ -24,7 +24,7 @@ export const Footer = () => {
                     </div>
                 </div>
 
-                <div className="footer-links">
+                <div className="footer-columns">
                     <div className="link-column">
                         <h4>Quick Links</h4>
                         <a href="#">Home</a>
