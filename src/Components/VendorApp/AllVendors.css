@@ -1,0 +1,372 @@
+.AllVendors .AllVendors{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fafafa;
+    color: #000000;
+}
+
+* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    width: 100vw;
+    min-height: 60px; 
+    margin: 0;
+    border-radius: 0; 
+}
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 40px;
+    min-height: 64px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    margin-right: auto;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.logo-text .vendor {
+    color: #1f2937;
+}
+
+.logo-text .app {
+    color: #0891b2;
+}
+
+.logo-img {
+  height:40px; 
+  width: auto;
+  margin-right: 8px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links li {
+    font-size: 0.95rem; 
+    font-weight: 500;
+    color: #000000;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+.nav-links li:hover {
+    color: #0891b2; 
+}
+.nav-links li:first-child {
+    color: #1f2937; 
+}
+
+.nav-btn {
+    background: #0891b2; 
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-left: auto;
+}
+
+.nav-btn:hover {
+  background: #0e7490;
+}
+
+/* Main Section */
+.main-content {
+    background: #ffffff;
+    min-height: calc(100vh - 64px);
+    padding: 40px 0 80px 0;
+}
+
+/* Header sect */
+.header-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #374151;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+}
+  
+.subtitle {
+    font-size: 1.125rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #ededed;
+    border-radius: 12px;
+    padding: 12px;
+    gap: 16px;
+    background: #fff;
+    margin-top: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+    width: 100%;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-input {
+    flex: 1;
+    border: 1px solid #ededed;
+    border-radius: 6px;
+    padding: 8px 15px;
+    font-size: 1rem;
+    outline: none;
+    background: #fafafa;
+    color: #111;
+    min-width: 0;
+    transition: border 0.2s;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ededed;
+    border-radius: 6px;
+    padding: 6px 18px;
+    background: #fafafa;
+    font-weight: 500;
+    color: #7b7b7b;
+    font-size: 1rem;
+    margin-right: 8px;
+    cursor: pointer;
+    gap: 8px;
+    transition: border 0.2s, background 0.2s;
+}
+
+.filter-btn:hover {
+    border: 1px solid #d1d5db;
+    background: #f3f4f6;
+}
+
+.sort-btn {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ededed;
+    border-radius: 6px;
+    padding: 6px 18px;
+    background: #fafafa;
+    font-weight: 500;
+    color: #7b7b7b;
+    font-size: 1rem;
+    margin-left: 8px;
+    cursor: pointer;
+    gap: 8px;
+    transition: border 0.2s, background 0.2s;
+}
+
+.sort-btn:hover {
+    border: 1px solid #d1d5db;
+    background: #f3f4f6;
+}
+
+/* Vendor Grid */
+.vendor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 0 40px;
+}
+
+/* Vendor Card */
+.vendor-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.vendor-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Profile Image */
+.vendor-profile-image {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.vendor-profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #f3f4f6;
+}
+
+/* Vendor Info */
+.vendor-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Vendor Name */
+.vendor-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Vendor Category */
+.vendor-category {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #0891b2;
+    margin: 0;
+}
+
+/* Vendor Description */
+.vendor-description {
+    font-size: 0.95rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
+    max-width: 280px;
+}
+
+/* Location */
+.vendor-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #1f2937;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 8px 0;
+}
+
+.vendor-location svg {
+    color: #1f2937;
+    flex-shrink: 0;
+}
+
+/* Visit Page Button */
+.visit-page-btn {
+    background: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1f2937;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 8px;
+}
+
+.visit-page-btn:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+    transform: translateY(-1px);
+}
+
+.visit-page-btn:active {
+    transform: translateY(0);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+  }
+  
+  .pagination-btn {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .pagination-btn:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+  }
+  
+  .pagination-btn.active {
+    background: #0891b2;
+    border-color: #0891b2;
+    color: #ffffff;
+  }
+  
+  .pagination-btn.active:hover {
+    background: #0e7490;
+    border-color: #0e7490;
+  }
+  
+
