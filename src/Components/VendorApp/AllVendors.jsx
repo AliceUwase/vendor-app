@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Logo_icon from '../../Assets/logo.svg';
 import { SelectionCard } from "./SelectionCard";
-import Logo_icon from '../../Assets/logo.svg';
 import './AllVendors.css';
 import { FaArrowLeft, FaArrowRight} from "react-icons/fa";
 import Footer from "./Footer";
@@ -54,20 +53,20 @@ export const AllVendors = () => {
                             className="search-input"
                            
                         />
-                        {/* Sort Button */}
+                        {/* Sort Button
                         <button className="sort-btn">
                             <span style={{display: "flex", alignItems: "center"}}>
                                 <svg width="16" height="16" fill="#85878b" style={{marginRight: "6px"}}><path d="M10 6l2 2-2 2M6 14V6M6 6l2-2-2-2" stroke="#85878b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
                             </span>
                             Sort By
-                        </button>
+                        </button> */}
                     </div>
 
                     {/* Vendor Card grid */}
                     <div className="vendor-grid">
                         <div className="vendor-card">
                             <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=200&fit=crop&crop=center" alt="Divine Catering" />
+                                <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Divine Catering" />
                             </div>
                             <div className="vendor-info">
                                 <h3 className="vendor-name">Divine Catering</h3>
@@ -88,11 +87,11 @@ export const AllVendors = () => {
 
                         <div className="vendor-card">
                             <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=200&fit=crop&crop=center" alt="Divine Catering" />
+                                <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
                             </div>
                             <div className="vendor-info">
-                                <h3 className="vendor-name">Divine Catering</h3>
-                                <span className="vendor-category">Catering</span>
+                                <h3 className="vendor-name">XOXO</h3>
+                                <span className="vendor-category">Restaurant</span>
                                 <p className="vendor-description">
                                     Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
                                 </p>
@@ -109,11 +108,11 @@ export const AllVendors = () => {
 
                         <div className="vendor-card">
                             <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=200&fit=crop&crop=center" alt="Divine Catering" />
+                                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhZmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
                             </div>
                             <div className="vendor-info">
-                                <h3 className="vendor-name">Divine Catering</h3>
-                                <span className="vendor-category">Catering</span>
+                                <h3 className="vendor-name">Shokola Cafe</h3>
+                                <span className="vendor-category">Coffee Shop</span>
                                 <p className="vendor-description">
                                     Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
                                 </p>
@@ -130,11 +129,11 @@ export const AllVendors = () => {
 
                         <div className="vendor-card">
                             <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=200&fit=crop&crop=center" alt="Divine Catering" />
+                                <img src="https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFzdHJ5fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
                             </div>
                             <div className="vendor-info">
-                                <h3 className="vendor-name">Divine Catering</h3>
-                                <span className="vendor-category">Catering</span>
+                                <h3 className="vendor-name">Brioche</h3>
+                                <span className="vendor-category">Pastry Shop</span>
                                 <p className="vendor-description">
                                     Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
                                 </p>
@@ -151,11 +150,11 @@ export const AllVendors = () => {
 
                         <div className="vendor-card">
                             <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=200&fit=crop&crop=center" alt="Divine Catering" />
+                                <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
                             </div>
                             <div className="vendor-info">
-                                <h3 className="vendor-name">Divine Catering</h3>
-                                <span className="vendor-category">Catering</span>
+                                <h3 className="vendor-name">Sapa Cakes</h3>
+                                <span className="vendor-category">Cake Shop</span>
                                 <p className="vendor-description">
                                     Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
                                 </p>
@@ -172,11 +171,11 @@ export const AllVendors = () => {
 
                         <div className="vendor-card">
                             <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=200&fit=crop&crop=center" alt="Divine Catering" />
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
                             </div>
                             <div className="vendor-info">
-                                <h3 className="vendor-name">Divine Catering</h3>
-                                <span className="vendor-category">Catering</span>
+                                <h3 className="vendor-name">Cave Restaurant</h3>
+                                <span className="vendor-category">Restaurant</span>
                                 <p className="vendor-description">
                                     Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
                                 </p>
@@ -193,11 +192,11 @@ export const AllVendors = () => {
 
                         <div className="vendor-card">
                             <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=200&fit=crop&crop=center" alt="Divine Catering" />
+                                <img src="https://images.unsplash.com/photo-1596995804697-27d11d43652e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1037" alt="Divine Catering" />
                             </div>
                             <div className="vendor-info">
-                                <h3 className="vendor-name">Divine Catering</h3>
-                                <span className="vendor-category">Catering</span>
+                                <h3 className="vendor-name">Kebab House</h3>
+                                <span className="vendor-category">Restaurant</span>
                                 <p className="vendor-description">
                                     Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
                                 </p>
@@ -214,11 +213,11 @@ export const AllVendors = () => {
 
                         <div className="vendor-card">
                             <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=200&fit=crop&crop=center" alt="Divine Catering" />
+                                <img src="https://images.unsplash.com/photo-1571757392712-7c1052de7ce5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emVyaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
                             </div>
                             <div className="vendor-info">
-                                <h3 className="vendor-name">Divine Catering</h3>
-                                <span className="vendor-category">Catering</span>
+                                <h3 className="vendor-name">Mama Pizzalo</h3>
+                                <span className="vendor-category">Pizzeria</span>
                                 <p className="vendor-description">
                                     Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
                                 </p>
@@ -235,11 +234,11 @@ export const AllVendors = () => {
 
                         <div className="vendor-card">
                             <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=200&fit=crop&crop=center" alt="Divine Catering" />
+                                <img src="https://images.unsplash.com/photo-1559249849-58451f22f489?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YnVyZ2VyJTIwam9pbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
                             </div>
                             <div className="vendor-info">
-                                <h3 className="vendor-name">Divine Catering</h3>
-                                <span className="vendor-category">Catering</span>
+                                <h3 className="vendor-name">Burger Planet</h3>
+                                <span className="vendor-category">Burger Joint</span>
                                 <p className="vendor-description">
                                     Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
                                 </p>
