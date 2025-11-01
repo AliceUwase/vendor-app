@@ -52,7 +52,7 @@ export const AllCategories = () => {
                         </div>
                         <div className="category-info" >
                             <div >
-                                <h3 className="category-name">Catering Services</h3>
+                                <h3 className="categoryGrid-name">Catering Services</h3>
                                 <p className="vendor-count">20 Vendors</p>
                             </div>
                             <button className="view-btn">View Vendors</button>
@@ -68,7 +68,7 @@ export const AllCategories = () => {
                         </div>
                         <div className="category-info" >
                             <div >
-                                <h3 className="category-name">Food Truck</h3>
+                                <h3 className="categoryGrid-name">Food Truck</h3>
                                 <p className="vendor-count">5 Vendors</p>
                             </div>
                             <button className="view-btn">View Vendors</button>
@@ -84,7 +84,7 @@ export const AllCategories = () => {
                         </div>
                         <div className="category-info" >
                             <div >
-                                <h3 className="category-name">Coffee SHop</h3>
+                                <h3 className="categoryGrid-name">Coffee SHop</h3>
                                 <p className="vendor-count">10 Vendors</p>
                             </div>
                             <button className="view-btn">View Vendors</button>
@@ -100,7 +100,7 @@ export const AllCategories = () => {
                         </div>
                         <div className="category-info" >
                             <div >
-                                <h3 className="category-name">Pastry Shop</h3>
+                                <h3 className="categoryGrid-name">Pastry Shop</h3>
                                 <p className="vendor-count">8 Vendors</p>
                             </div>
                             <button className="view-btn">View Vendors</button>
@@ -116,7 +116,7 @@ export const AllCategories = () => {
                         </div>
                         <div className="category-info" >
                             <div >
-                                <h3 className="category-name">Pet Foods</h3>
+                                <h3 className="categoryGrid-name">Pet Foods</h3>
                                 <p className="vendor-count">10 Vendors</p>
                             </div>
                             <button className="view-btn">View Vendors</button>
@@ -132,7 +132,7 @@ export const AllCategories = () => {
                         </div>
                         <div className="category-info" >
                             <div >
-                                <h3 className="category-name">Restaurant</h3>
+                                <h3 className="categoryGrid-name">Restaurant</h3>
                                 <p className="vendor-count">9 Vendors</p>
                             </div>
                             <button className="view-btn">View Vendors</button>
@@ -148,7 +148,7 @@ export const AllCategories = () => {
                         </div>
                         <div className="category-info" >
                             <div >
-                                <h3 className="category-name">Bar</h3>
+                                <h3 className="categoryGrid-name">Bar</h3>
                                 <p className="vendor-count">10 Vendors</p>
                             </div>
                             <button className="view-btn">View Vendors</button>
@@ -164,7 +164,7 @@ export const AllCategories = () => {
                         </div>
                         <div className="category-info" >
                             <div >
-                                <h3 className="category-name">Pizzeria</h3>
+                                <h3 className="categoryGrid-name">Pizzeria</h3>
                                 <p className="vendor-count">5 Vendors</p>
                             </div>
                             <button className="view-btn">View Vendors</button>
@@ -180,7 +180,7 @@ export const AllCategories = () => {
                         </div>
                         <div className="category-info" >
                             <div >
-                                <h3 className="category-name">Burger Joint</h3>
+                                <h3 className="categoryGrid-name">Burger Joint</h3>
                                 <p className="vendor-count">5 Vendors</p>
                             </div>
                             <button className="view-btn">View Vendors</button>
