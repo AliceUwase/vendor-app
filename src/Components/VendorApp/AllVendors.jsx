@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Logo_icon from '../../Assets/logo.svg';
 import { SelectionCard } from "./SelectionCard";
+import { Link } from 'react-router-dom';
 import './AllVendors.css';
 import { FaArrowLeft, FaArrowRight} from "react-icons/fa";
 import Footer from "./Footer";
@@ -12,22 +13,24 @@ export const AllVendors = () => {
         return (
             <div className='AllVendors'>
                 {/* Navbar */}
-                <nav className="navbar">
-                    <div className="navbar-container">
-                        <div className="logo">
-                            <img src={Logo_icon} alt="vendor logo" className="logo-img"/>
-                        </div>
-                        <ul className="nav-links">
-                            <li>Home</li>
-                            <li>Browse</li>
-                            <li>Categories</li>
-                            <li>Best Deals</li>
-                            <li>About</li>
-                        </ul>
-                
-                        <button className="nav-btn" onClick={() => setIsSelectionOpen(true)}>Get Started</button>
-                    </div>
-                </nav>
+        <nav className="navbar">
+            <div className="navbar-container">
+                <div className="logo">
+                    <Link to="/landing">
+                        <img src={Logo_icon} alt="vendor logo" className="logo-img"/>
+                    </Link>
+                </div>
+                <ul className="nav-links">
+                    <li><Link to="/landing">Home</Link></li>
+                    <li><Link to="/browsePage">Browse</Link></li>
+                    <li><Link to="/allCategories">Categories</Link></li>
+                    {/* <li><a href="#specials">Best Deals</a></li> */}
+                    {/* <li><a href="#footer">About</a></li> */}
+                </ul>
+        
+                <button className="nav-btn" onClick={() => setIsSelectionOpen(true)}>Get Started</button>
+            </div>
+        </nav>
 
                 {/* Main Content */}
                 <div className='main-content'>
