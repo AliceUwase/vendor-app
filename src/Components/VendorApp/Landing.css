@@ -75,7 +75,15 @@
     transition: color 0.2s ease;
     white-space: nowrap;
 }
-.nav-links li:hover {
+
+/* removing underline from all <a> in nav-links section */
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-links li:hover,
+.nav-links a:hover {
     color: #0891b2; 
 }
 .nav-links li:first-child {
@@ -646,7 +654,7 @@
 
 .vendor-category {
   color: #9ca3af;
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }

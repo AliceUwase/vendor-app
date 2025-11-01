@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { Link } from 'react-router-dom';
 import "./Landing.css";
 import Logo_icon from '../../Assets/logo.svg';
 import Footer from "./Footer";
@@ -134,14 +135,16 @@ export const Landing= () => {
         <nav className="navbar">
             <div className="navbar-container">
                 <div className="logo">
-                    <img src={Logo_icon} alt="vendor logo" className="logo-img"/>
+                    <Link to="/landing">
+                        <img src={Logo_icon} alt="vendor logo" className="logo-img"/>
+                    </Link>
                 </div>
                 <ul className="nav-links">
-                    <li>Home</li>
-                    <li>Browse</li>
-                    <li>Categories</li>
-                    <li>Best Deals</li>
-                    <li>About</li>
+                    <li><Link to="/landing">Home</Link></li>
+                    <li><Link to="/browsePage">Browse</Link></li>
+                    <li><Link to="/allCategories">Categories</Link></li>
+                    <li><a href="#specials">Best Deals</a></li>
+                    {/* <li><a href="#footer">About</a></li> */}
                 </ul>
         
                 <button className="nav-btn" onClick={() => setIsSelectionOpen(true)}>Get Started</button>
@@ -153,7 +156,7 @@ export const Landing= () => {
             <div className="hero-content">
                 <h1>Discover amazing Fresh Flavors Today</h1>
                 <p>Enjoy up to 30% of your first visit</p>
-                <button className="hero-btn">Buy Now</button>
+                <button className="hero-btn" onClick={() => window.location.assign('/browsePage')}>Buy Now</button>
             </div>
             <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Food" className="hero-img" />
         </section>
@@ -164,9 +167,9 @@ export const Landing= () => {
             <div className="vendor-carousel-container">
                 <button className="carousel-nav carousel-nav-left" onClick={scrollLeft}>‹</button>
                 <div className="vendor-carousel" ref={carouselRef}>
-                    <div className="vendor-card" onClick={() => window.location.assign('/vendor/lamane-bakery')} role="button" tabIndex={0}>
+                    <div className="vendor-card" onClick={() => window.location.assign('/vendorDetails')} >
                         <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a" alt="Lamane Bakery" className="vendor-image"/>
-                        <div className="vendor-info">
+                            <div className="vendor-info">
                             <h3 className="vendor-name">Lamane Bakery</h3>
                             <div className="vendor-rating">
                                 <span className="stars">★★★★☆</span>
@@ -179,7 +182,7 @@ export const Landing= () => {
                         </div>
                     </div>
                     
-                    <div className="vendor-card" onClick={() => window.location.assign('/vendor/divine-catering')} role="button" tabIndex={0}>
+                    <div className="vendor-card" onClick={() => window.location.assign('/vendorDetails')} >
                         <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0ZXJpbmd8ZW58MHx8MHx8fDA%3D" alt="Divine Catering" className="vendor-image"/>
                         <div className="vendor-info">
                             <h3 className="vendor-name">Divine Catering</h3>
@@ -194,7 +197,7 @@ export const Landing= () => {
                         </div>
                     </div>
                     
-                    <div className="vendor-card" onClick={() => window.location.assign('/vendor/delizia-italiana')} role="button" tabIndex={0}>
+                    <div className="vendor-card" onClick={() => window.location.assign('/vendorDetails')}>
                         <img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGljZSUyMGNyZWFtJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="Delizia Italiana" className="vendor-image"/>
                         <div className="vendor-info">
                             <h3 className="vendor-name">Delizia Italiana</h3>
@@ -222,7 +225,7 @@ export const Landing= () => {
                         <h3>Business Online</h3>
                         <h3>Faster Today</h3>
                     </div>
-                    <button className="promo-btn">Register Now</button>
+                    <button className="promo-btn" onClick={() => window.location.assign('/signup')}>Register Now</button>
                 </div>
                 <div className="promo-image">
                     <img src="https://images.unsplash.com/photo-1724668639673-35461076a746?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Local Business" />
@@ -234,7 +237,7 @@ export const Landing= () => {
                         <h3>Connect With Your</h3>
                         <h3>Community Now</h3>
                     </div>
-                    <button className="promo-btn">Register Now</button>
+                    <button className="promo-btn" onClick={() => window.location.assign('/signup')}>Register Now</button>
                 </div>
                 <div className="promo-image">
                     <img src="https://media.istockphoto.com/id/1488770469/photo/positive-man-chef-preparing-pizza-in-pizzeria.webp?a=1&b=1&s=612x612&w=0&k=20&c=iw1CW1YsddODwJACf-6wPtfuo8qaSu_-D6V_LVQ8iBE=" alt="Community" />
@@ -248,7 +251,7 @@ export const Landing= () => {
                 <div className="order-text-section">
                     <h3>Stay home & Order</h3>
                     <h3>Delicious Meals Online</h3>
-                    <button className="order-btn">Order Now</button>
+                    <button className="order-btn" onClick={() => window.location.assign('/browsePage')}>Order Now</button>
                 </div>
                 <div className="order-image-section">
                     <img src="https://images.unsplash.com/photo-1652862730506-9f7310faabbd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Delicious Food" />
@@ -257,7 +260,7 @@ export const Landing= () => {
         </section>
 
         {/* Specials */}
-        <section className="specials">
+        <section className="specials" id="specials">
             <div className="specials-promo">
                 <div className="specials-header">
                     <h3 className="specials-title-cursive">Today's</h3>
@@ -411,7 +414,8 @@ export const Landing= () => {
             </div>
 		</section>
 
-		<Footer />
+		<Footer/>
+         
 
         {isSelectionOpen && (
             <div className="modal-overlay" role="dialog" aria-modal="true" aria-label="Choose your path">
