@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './AllCategories.css';
 import Footer from "./Footer";
 import { FaArrowRight,FaArrowLeft } from "react-icons/fa";
+import { Navbar } from './Navbar';
 
 
 export const AllCategories = () => {
@@ -13,24 +14,7 @@ export const AllCategories = () => {
   return (
     <div className='AllCategories'>
         {/* Navbar */}
-        <nav className="navbar">
-            <div className="navbar-container">
-                <div className="logo">
-                    <Link to="/landing">
-                        <img src={Logo_icon} alt="vendor logo" className="logo-img"/>
-                    </Link>
-                </div>
-                <ul className="nav-links">
-                    <li><Link to="/landing">Home</Link></li>
-                    <li><Link to="/browsePage">Browse</Link></li>
-                    <li><Link to="/allCategories">Categories</Link></li>
-                    {/* <li><a href="#specials">Best Deals</a></li> */}
-                    {/* <li><a href="#footer">About</a></li> */}
-                </ul>
-        
-                <button className="nav-btn" onClick={() => setIsSelectionOpen(true)}>Get Started</button>
-            </div>
-        </nav>
+        <Navbar/>
 
         {/* Main Content */}
         <main className="main-content">

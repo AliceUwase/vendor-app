@@ -2,17 +2,19 @@
     font-family: 'Segoe UI', Arial, sans-serif;
     background: #fafafa;
     color: #000000;
+    width: 100%;
+    overflow-x: hidden;
 }
 
-* Navbar */
+/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0;
     background: #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    width: 100vw;
+    width: 100%;
     min-height: 60px; 
     margin: 0;
     border-radius: 0; 
@@ -24,7 +26,7 @@
     width: 100%;
     max-width: 1200px; 
     margin: 0 auto; 
-    padding: 0 40px;
+    padding: 0 24px;
     min-height: 64px;
 }
 
@@ -106,6 +108,8 @@
     background: #ffffff;
     min-height: calc(100vh - 64px);
     padding: 40px 0 80px 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Header sect */
@@ -209,8 +213,9 @@
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 24px;
     max-width: 1200px;
+    width: 100%;
     margin: 40px auto 0;
-    padding: 0 40px;
+    padding: 0 24px;
 }
 
 /* Vendor Card */

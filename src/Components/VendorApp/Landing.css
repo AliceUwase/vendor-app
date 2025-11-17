@@ -2,6 +2,8 @@
   font-family: 'Segoe UI', Arial, sans-serif;
   background: #fafafa;
   color: #222;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Navbar */
@@ -9,10 +11,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0;
     background: #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    width: 100vw;
+    width: 100%;
     min-height: 60px; 
     margin: 0;
     border-radius: 0; 
@@ -24,7 +26,7 @@
     width: 100%;
     max-width: 1200px; 
     margin: 0 auto; 
-    padding: 0 40px;
+    padding: 0 24px;
     min-height: 64px;
 }
 
@@ -114,11 +116,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 48px;
+  padding: 48px 24px;
   background: #e0f7fa;
   border-radius: 16px;
   margin: 32px auto;
   max-width: 1100px;
+  width: 100%;
   box-shadow: 0 2px 16px rgba(0,0,0,0.06);
 }
 
@@ -163,6 +166,7 @@
 /* Popular Vendors */
 .popular-vendors {
   max-width: 1100px;
+  width: 100%;
   margin: 40px auto;
   /* background: #f0f8e8; */
   border-radius: 16px;
@@ -302,7 +306,9 @@
   display: flex;
   gap: 24px;
   max-width: 1100px;
+  width: 100%;
   margin: 40px auto;
+  padding: 0 24px;
 }
 
 .promo-card {
@@ -384,10 +390,12 @@
 /* Order Online */
 .order-online {
   max-width: 1100px;
+  width: 100%;
   margin: 40px auto;
   border: 2px solid #2433370d;
   border-radius: 16px;
   overflow: hidden;
+  padding: 0 24px;
 }
 
 .order-content {
@@ -456,10 +464,12 @@
 /* Specials */
 .specials {
   max-width: 1100px;
+  width: 100%;
   margin: 40px auto;
   display: flex;
   gap: 24px;
   align-items: stretch;
+  padding: 0 24px;
 }
 
 .specials-promo {
@@ -693,8 +703,10 @@
 /* Partners */
 .partners {
   max-width: 1100px;
+  width: 100%;
   margin: 40px auto;
   text-align: center;
+  padding: 0 24px;
 }
 
 .partner-logos {
@@ -782,6 +794,7 @@
 /* Testimonials */
 .testimonials {
   max-width: 900px;
+  width: 100%;
   margin: 40px auto;
   background: #fff;
   border-radius: 12px;
@@ -863,6 +876,7 @@
 /* FAQ */
 .faq {
   max-width: 900px;
+  width: 100%;
   margin: 40px auto;
   background: #fff;
   /* border-radius: 12px;
@@ -934,7 +948,7 @@
   margin: 12px 0 16px 0;
 }
 
-/* Responsive
+/* Responsive */
 @media (max-width: 900px) {
   .hero, .specials, .promo-container {
     flex-direction: column;
@@ -959,6 +973,48 @@
     flex-direction: column;
     gap: 16px;
     padding: 0 16px;
+  }
+  
+  .hero {
+    padding: 32px 16px;
+    margin: 24px 16px;
+  }
+  
+  .popular-vendors {
+    padding: 24px 16px;
+    margin: 32px 16px;
+  }
+  
+  .promo-container {
+    flex-direction: column;
+    padding: 0 16px;
+    margin: 32px 16px;
+  }
+  
+  .order-online {
+    padding: 0 16px;
+    margin: 32px 16px;
+  }
+  
+  .specials {
+    flex-direction: column;
+    padding: 0 16px;
+    margin: 32px 16px;
+  }
+  
+  .partners {
+    padding: 0 16px;
+    margin: 32px 16px;
+  }
+  
+  .testimonials {
+    padding: 24px 16px;
+    margin: 32px 16px;
+  }
+  
+  .faq {
+    padding: 24px 16px;
+    margin: 32px 16px;
   }
   
   .nav-links {
