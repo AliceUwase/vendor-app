@@ -111,6 +111,133 @@
   background: #0e7490;
 }
 
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #1f2937;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.2s ease;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle:hover {
+  color: #0891b2;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  max-width: 85vw;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mobile-menu-logo {
+  height: 36px;
+  width: auto;
+}
+
+.mobile-menu-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #1f2937;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.mobile-menu-close:hover {
+  color: #0891b2;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.mobile-nav-links li {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.mobile-nav-links a {
+  display: block;
+  padding: 16px 24px;
+  color: #1f2937;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-links a:hover {
+  background-color: #f9fafb;
+  color: #0891b2;
+}
+
+.mobile-nav-btn {
+  margin: 20px 24px;
+  padding: 12px 24px;
+  background: #0891b2;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.mobile-nav-btn:hover {
+  background: #0e7490;
+}
+
 /* Hero Section */
 .hero {
   display: flex;
@@ -963,16 +1090,18 @@
     flex-direction: column;
     gap: 12px;
   }
-  .navbar {
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
+  
+  /* Mobile Menu Styles */
+  .mobile-menu-toggle {
+    display: block;
   }
   
-  .navbar-container {
-    flex-direction: column;
-    gap: 16px;
-    padding: 0 16px;
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-btn {
+    display: none;
   }
   
   .hero {
@@ -1015,22 +1144,6 @@
   .faq {
     padding: 24px 16px;
     margin: 32px 16px;
-  }
-  
-  .nav-links {
-    position: static;
-    transform: none;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .logo {
-    margin-right: 0;
-    justify-content: center;
-  }
-  
-  .nav-btn {
-    margin-left: 0;
   }
   
   .vendor-carousel-container {
@@ -1111,7 +1224,8 @@
   }
   
   .vendor-special-card {
-    width: calc(33.333% - 6px);
+    width: calc(50% - 6px);
+    min-width: 200px;
   }
   
   .vendor-special-image {
@@ -1121,7 +1235,61 @@
   .vendor-special-image.placeholder {
     height: 100px;
   }
-} */
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .testimonials {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .testimonial-nav {
+    display: none;
+  }
+  
+  .testimonial-content {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 24px 16px;
+    margin: 16px;
+  }
+  
+  .hero-content h1 {
+    font-size: 1.75rem;
+  }
+  
+  .popular-vendors h2,
+  .partners h3,
+  .faq h3 {
+    font-size: 1.5rem;
+  }
+  
+  .vendor-special-card {
+    width: 100%;
+  }
+  
+  .specials-vendors {
+    gap: 8px;
+  }
+  
+  .promo-text h3 {
+    font-size: 1.2rem;
+  }
+  
+  .order-text-section h3 {
+    font-size: 1.4rem;
+  }
+}
 
 /* Modal for SelectionCard */
 .modal-overlay {

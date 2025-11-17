@@ -1,32 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 import Logo_icon from "../../Assets/logo.svg";
 import { SelectionCard } from "./SelectionCard";
 
 export const Navbar = ({showBestDeals=false}) => {
   const [isSelectionOpen, setIsSelectionOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleNavLinkClick = () => {
+    closeMobileMenu();
+  };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="logo">
-          <Link to="/landing">
+          <Link to="/landing" onClick={handleNavLinkClick}>
             <img src={Logo_icon} alt="vendor logo" className="logo-img" />
           </Link>
         </div>
         <ul className="nav-links">
           <li>
-            <Link to="/landing">Home</Link>
+            <Link to="/landing" onClick={handleNavLinkClick}>Home</Link>
           </li>
           <li>
-            <Link to="/browsePage">Browse</Link>
+            <Link to="/browsePage" onClick={handleNavLinkClick}>Browse</Link>
           </li>
           <li>
-            <Link to="/allCategories">Categories</Link>
+            <Link to="/allCategories" onClick={handleNavLinkClick}>Categories</Link>
           </li>
           {showBestDeals && (
             <li>
-              <a href="#specials">Best Deals</a>
+              <a href="#specials" onClick={handleNavLinkClick}>Best Deals</a>
             </li>
           )}
           {/* <li><a href="#footer">About</a></li> */}
@@ -35,6 +61,56 @@ export const Navbar = ({showBestDeals=false}) => {
         <button className="nav-btn" onClick={() => setIsSelectionOpen(true)}>
           Get Started
         </button>
+
+        {/* Mobile Menu Toggle Button */}
+        <button 
+          className="mobile-menu-toggle"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+        >
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`mobile-menu-overlay ${isMobileMenuOpen ? 'active' : ''}`}
+        onClick={closeMobileMenu}
+      >
+        <div 
+          className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="mobile-menu-header">
+            <img src={Logo_icon} alt="vendor logo" className="mobile-menu-logo" />
+          </div>
+          <ul className="mobile-nav-links">
+            <li>
+              <Link to="/landing" onClick={handleNavLinkClick}>Home</Link>
+            </li>
+            <li>
+              <Link to="/browsePage" onClick={handleNavLinkClick}>Browse</Link>
+            </li>
+            <li>
+              <Link to="/allCategories" onClick={handleNavLinkClick}>Categories</Link>
+            </li>
+            {showBestDeals && (
+              <li>
+                <a href="#specials" onClick={handleNavLinkClick}>Best Deals</a>
+              </li>
+            )}
+          </ul>
+          <button 
+            className="mobile-nav-btn" 
+            onClick={() => {
+              setIsSelectionOpen(true);
+              closeMobileMenu();
+            }}
+          >
+            Get Started
+          </button>
+        </div>
       </div>
 
       {isSelectionOpen && (
