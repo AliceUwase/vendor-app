@@ -2,8 +2,6 @@
   <img src="src/Assets/logo.svg" alt="Vendor App Logo" width="150"/>
 </p>
 
-# Vendor App
-
 A platform to discover, promote, and connect with local food vendors.
 
 ---
