@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-import Logo_icon from '../../Assets/logo.svg';
-import { SelectionCard } from "./SelectionCard";
-import { Link } from 'react-router-dom';
 import './BrowsePage.css';
 import { FaSearch, FaArrowRight } from "react-icons/fa";
 import Footer from "./Footer";
@@ -10,7 +7,7 @@ import { Navbar } from './Navbar';
 
 
 export const BrowsePage = () => {
-    const [isSelectionOpen, setIsSelectionOpen] = useState(false);
+    const [, setIsSelectionOpen] = useState(false);
 
         return (
             <div className='Browse-Page'>
