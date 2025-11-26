@@ -27,33 +27,33 @@ export const Footer = () => {
                 <div className="footer-columns">
                     <div className="link-column">
                         <h4>Quick Links</h4>
-                        <a href="#">Home</a>
-                        <a href="#">Categories</a>
-                        <a href="#">All Vendors</a>
-                        <a href="#">Help Center</a>
+                        <a href="/landing">Home</a>
+                        <a href="/allCategories">Categories</a>
+                        <a href="/allVendors">All Vendors</a>
+                        <a href="/#">Help Center</a>
                     </div>
                     <div className="link-column">
                         <h4>Legal</h4>
-                        <a href="#">Vendor Requirements</a>
-                        <a href="#">Terms & Conditions</a>
-                        <a href="#">Food Safety Guidelines</a>
-                        <a href="#">User Policy</a>
-                        <a href="#">Contact Us</a>
+                        <a href="/#">Vendor Requirements</a>
+                        <a href="/#">Terms & Conditions</a>
+                        <a href="/#">Food Safety Guidelines</a>
+                        <a href="/#">User Policy</a>
+                        <a href="/#">Contact Us</a>
                     </div>
                     <div className="link-column">
                         <h4>Vendors</h4>
-                        <a href="#">Vendor Login</a>
-                        <a href="#">Add New Vendor</a>
-                        <a href="#">Business Policy</a>
+                        <a href="/login">Vendor Login</a>
+                        <a href="/vendor-registration">Add New Vendor</a>
+                        <a href="/#">Business Policy</a>
                     </div>
                 </div>
 
                 <div className="footer-bottom">
                     <div className="copyright">©2025 Vendor App. All rights reserved.</div>
                     <div className="socials">
-                        <a aria-label="Instagram" href="#" className="social instagram"><FaInstagram size={28} /></a>
-                        <a aria-label="Facebook" href="#" className="social facebook"><FaFacebook size={28} /></a>
-                        <a aria-label="LinkedIn" href="#" className="social linkedin"><FaLinkedin size={28} /></a>
+                        <a aria-label="Instagram" href="/#" className="social instagram"><FaInstagram size={28} /></a>
+                        <a aria-label="Facebook" href="/#" className="social facebook"><FaFacebook size={28} /></a>
+                        <a aria-label="LinkedIn" href="/#" className="social linkedin"><FaLinkedin size={28} /></a>
                     </div>
                 </div>
             </div>
