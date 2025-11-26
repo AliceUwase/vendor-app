@@ -17,7 +17,7 @@ export const VendorTypeStep = ({ data, updateData, onNext }) => {
             <div className="step-header">
                 <h1>Select the type of business Entity</h1>
                 <p>Establish you vendor in just a few steps</p>
-                <a href="#" className="help-link">Having trouble? Get Help</a>
+                <a href="/#" className="help-link">Having trouble? Get Help</a>
             </div>
 
             <div className="step-content">

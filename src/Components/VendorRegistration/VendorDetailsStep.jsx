@@ -33,7 +33,7 @@ export const VendorDetailsStep = ({ data, updateData, onNext, onBack }) => {
             <div className="step-header">
                 <h1>Vendor Details</h1>
                 <p>Enter the details for your Vendor & Team members's Name</p>
-                <a href="#" className="help-link">Having trouble? Get Help</a>
+                <a href="/#" className="help-link">Having trouble? Get Help</a>
             </div>
 
             <div className="step-content">

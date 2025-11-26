@@ -29,7 +29,7 @@ export const PersonalDetailsStep = ({ data, updateData, onNext, onBack }) => {
             <div className="step-header">
                 <h1>Personal Details</h1>
                 <p>Provide your personal and card identification information.</p>
-                <a href="#" className="help-link">Having trouble? Get Help</a>
+                <a href="/#" className="help-link">Having trouble? Get Help</a>
             </div>
 
             <div className="step-content">

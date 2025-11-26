@@ -25,7 +25,7 @@ export const Login = () => {
             <div className="form-options">
               <input type="checkbox" id="remember" />
               <label htmlFor="remember">Remember me</label>
-              <a href="#">Forgot Password?</a>
+              <a href="/#">Forgot Password?</a>
             </div>
             <button type="submit" className="login-btn">Log In</button>
           </form>

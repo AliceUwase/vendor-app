@@ -30,7 +30,7 @@ export const LocationStep = ({ data, updateData, onNext, onBack }) => {
             <div className="step-header">
                 <h1>Choose Location</h1>
                 <p>Choose the location where plan to register your Vendor</p>
-                <a href="#" className="help-link">Having trouble? Get Help</a>
+                <a href="/#" className="help-link">Having trouble? Get Help</a>
             </div>
 
             <div className="step-content">

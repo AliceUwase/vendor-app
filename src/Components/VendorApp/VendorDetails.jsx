@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import './VendorDetails.css';
 import { Link } from 'react-router-dom';
-import { SelectionCard } from "./SelectionCard";
 import Logo_icon from '../../Assets/logo.svg';
 import Logo from '../../Assets/Chick-fil-A-Logo.svg';
 import BakeryPhoto from '../../Assets/food1.png';
 import Footer from './Footer';
 
 export const VendorDetails = () => {
-  const [isSelectionOpen, setIsSelectionOpen] = useState(false);
+  const [, setIsSelectionOpen] = useState(false);
     return (
       <div className="vendor-details-page">
         {/* Navbar */}

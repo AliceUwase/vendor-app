@@ -1,8 +1,6 @@
 import React, { useRef, useState } from "react";
-import { Link } from 'react-router-dom';
 import "./Landing.css";
 import Footer from "./Footer";
-import { SelectionCard } from "./SelectionCard";
 import { Navbar } from "./Navbar";
 
 
@@ -11,7 +9,6 @@ export const Landing= () => {
     const vendorCarouselRef = useRef(null);
     const [openIndex, setOpenIndex] = useState(0);
     const [testimonialIndex, setTestimonialIndex] = useState(0);
-    const [isSelectionOpen, setIsSelectionOpen] = useState(false);
 
     const testimonials = [
         {
