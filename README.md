@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Vendor App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A platform to discover, promote, and connect with local food vendors.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## What This Project Does
 
-### `npm start`
+Vendor App is a React-based web platform for users to:
+- Browse and discover local vendors (e.g. restaurants, bakeries, catering services)
+- View vendor details, ratings, location, distance, and status (open/closed)
+- Register your own business or connect with your local community
+- Search vendors by category or name
+- Review and rate business
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to Run
 
-### `npm test`
+1. **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Run the development server**
+    ```bash
+    npm start
+    ```
+    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### `npm run build`
+3. **Build for production**
+    ```bash
+    npm run build
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Run tests**
+    ```bash
+    npm test
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Main Features
 
-### `npm run eject`
+- **Vendor Carousel:** Highlights popular vendors with ratings, status, and distance.
+- **Category Search:** Easily search for vendors by category (e.g. Bakery, Catering, Restaurant).
+- **Promotional Sections:** Encourages local business signups and community engagement.
+- **Responsive Design:** Usable on desktop and mobile.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## What I Used to Build This
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **ReactJS** - Frontend UI library
+- **React Router** - Navigation and routing
+- **CSS** - Custom and module styling
+- **Create React App** - Boilerplate and development tooling
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## How the Code Works
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The app is structured around reusable React components. 
+- The landing page (`Landing.jsx`) renders a vendor carousel, promotions, and featured sections.
+- `BrowsePage.jsx` allows users to search by keyword or category, view vendors in a grid, and navigate to more details.
+- UI state (e.g. open drawers, scroll positions) is managed with React hooks like `useState` and `useRef`.
+- Navigation between pages uses `window.location.assign()` and/or React Router `Link` components.
+- All vendor data and images are presently mocked/statically included; backend integration can be added as needed.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
