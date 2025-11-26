@@ -1,7 +1,4 @@
-import React, { useState } from 'react'
-import Logo_icon from '../../Assets/logo.svg';
-import { SelectionCard } from "./SelectionCard";
-import { Link } from 'react-router-dom';
+import React from 'react'
 import './AllCategories.css';
 import Footer from "./Footer";
 import { FaArrowRight,FaArrowLeft } from "react-icons/fa";
@@ -9,7 +6,6 @@ import { Navbar } from './Navbar';
 
 
 export const AllCategories = () => {
-  const [isSelectionOpen, setIsSelectionOpen] = useState(false);
 
   return (
     <div className='AllCategories'>
