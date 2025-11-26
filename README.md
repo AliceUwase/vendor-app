@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
   <img src="src/Assets/logo.svg" alt="Vendor App Logo" width="150"/>
 </p>
 
