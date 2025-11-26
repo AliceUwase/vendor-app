@@ -9,8 +9,8 @@ A platform to discover, promote, and connect with local food vendors.
 ## What This Project Does
 
 Vendor App is a React-based web platform for users to:
-- Browse and discover local vendors (e.g. restaurants, bakeries, catering services)
-- View vendor details, ratings, location, distance, and status (open/closed)
+- Browse and discover local vendors 
+- View vendor details, ratings, location, distance, and status 
 - Register your own business or connect with your local community
 - Search vendors by category or name
 - Review and rate business
@@ -62,12 +62,25 @@ Vendor App is a React-based web platform for users to:
 
 ## How the Code Works
 
-The app is structured around reusable React components. 
-- The landing page (`Landing.jsx`) renders a vendor carousel, promotions, and featured sections.
-- `BrowsePage.jsx` allows users to search by keyword or category, view vendors in a grid, and navigate to more details.
-- UI state (e.g. open drawers, scroll positions) is managed with React hooks like `useState` and `useRef`.
-- Navigation between pages uses `window.location.assign()` and/or React Router `Link` components.
-- All vendor data and images are presently mocked/statically included; backend integration can be added as needed.
+1. The app structure:
+   - Uses reusable React components for each UI section.
+
+2. Main pages:
+   - The landing page (`Landing.jsx`):
+     - Displays  popular vendors.
+     - Shows promotional callouts to register or join the community.
+     - Features specials and order-online sections.
+   - The browse page (`BrowsePage.jsx`):
+     - users search by vendor name or keyword.
+     - search  by category.
+     - Displays vendors 
+    
+3. How state and navigation work:
+   - UI state is managed with React hooks
+   - Navigation between pages uses both:
+     - `window.location.assign()` for direct redirects.
+     - React Router's `<Link>` components for client-side routing.
+
 
 ---
 
