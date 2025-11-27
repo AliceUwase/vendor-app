@@ -1,277 +1,211 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Logo_icon from '../../Assets/logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './AllVendors.css';
-import { FaArrowLeft, FaArrowRight} from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaSearch } from "react-icons/fa";
 import Footer from "./Footer";
+import { getAllVendors, searchVendors } from '../../services/vendorService';
+import logo_icon from '../../Assets/logo.svg';
 
+const normalizeVendors = (payload) => {
+    if (Array.isArray(payload)) return payload;
+    if (Array.isArray(payload?.data)) return payload.data;
+    return [];
+};
 
 export const AllVendors = () => {
-    const [, setIsSelectionOpen] = useState(false);
+    const [vendors, setVendors] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        loadVendors();
+    }, [currentPage]);
+
+    const loadVendors = async (searchQuery = null) => {
+        setIsLoading(true);
+        setError('');
+        try {
+            let response;
+            if (searchQuery && searchQuery.trim()) {
+                response = await searchVendors(searchQuery.trim());
+            } else {
+                response = await getAllVendors({ page: currentPage, limit: 9 });
+            }
+            
+            const vendorList = normalizeVendors(response);
+            setVendors(vendorList);
+            
+            if (response.total && response.pages) {
+                setTotalPages(response.pages);
+            }
+        } catch (fetchError) {
+            setError(fetchError?.message || 'Unable to load vendors right now.');
+            setVendors([]);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleSearch = () => {
+        setCurrentPage(1);
+        loadVendors(searchTerm);
+    };
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            handleSearch();
+        }
+    };
+
+    const handleVendorClick = (vendorId) => {
+        navigate(`/vendorDetails?id=${vendorId}`);
+    };
+
+    const handlePageChange = (page) => {
+        if (page >= 1 && page <= totalPages) {
+            setCurrentPage(page);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
+    const renderPagination = () => {
+        const pages = [];
+        const maxVisible = 5;
+        let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+        let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+        
+        if (endPage - startPage < maxVisible - 1) {
+            startPage = Math.max(1, endPage - maxVisible + 1);
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+            pages.push(
+                <button
+                    key={i}
+                    className={`pagination-btn ${i === currentPage ? 'active' : ''}`}
+                    onClick={() => handlePageChange(i)}
+                >
+                    {i}
+                </button>
+            );
+        }
 
         return (
-            <div className='AllVendors'>
-                {/* Navbar */}
-        <nav className="navbar">
-            <div className="navbar-container">
-                <div className="logo">
-                    <Link to="/landing">
-                        <img src={Logo_icon} alt="vendor logo" className="logo-img"/>
-                    </Link>
-                </div>
-                <ul className="nav-links">
-                    <li><Link to="/landing">Home</Link></li>
-                    <li><Link to="/browsePage">Browse</Link></li>
-                    <li><Link to="/allCategories">Categories</Link></li>
-                    {/* <li><a href="#specials">Best Deals</a></li> */}
-                    {/* <li><a href="#footer">About</a></li> */}
-                </ul>
-        
-                <button className="nav-btn" onClick={() => setIsSelectionOpen(true)}>Get Started</button>
+            <div className="pagination">
+                <button
+                    className="pagination-btn"
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                >
+                    <FaArrowLeft style={{ marginRight: '0.5rem' }} />
+                </button>
+                {pages}
+                <button
+                    className="pagination-btn"
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                >
+                    <FaArrowRight style={{ marginRight: '0.5rem' }} />
+                </button>
             </div>
-        </nav>
+        );
+    };
 
-                {/* Main Content */}
-                <div className='main-content'>
-                    {/* Hero section */}
-                    <div className='header-section'>
-                        <h1 className='main-title'>Discover All Vendors</h1>
-                        <p className='subtitle'>Browse through a comprehensive list of all registered vendors on our platform.</p>
+    return (
+        <div className='AllVendors'>
+            <nav className="navbar">
+                <div className="navbar-container">
+                    <div className="logo">
+                        <Link to="/landing">
+                            <img src={Logo_icon} alt="vendor logo" className="logo-img"/>
+                        </Link>
                     </div>
+                    <ul className="nav-links">
+                        <li><Link to="/landing">Home</Link></li>
+                        <li><Link to="/browsePage">Browse</Link></li>
+                        <li><Link to="/allCategories">Categories</Link></li>
+                    </ul>
+                    <button className="nav-btn" onClick={() => navigate('/vendor-registration')}>Get Started</button>
+                </div>
+            </nav>
 
-                    {/* Search Bar */}
-                    <div className="search-container" >
-                        {/* Filter Button */}
-                        <button className="filter-btn">
-                            <span style={{display: "flex", alignItems: "center"}}>
-                                <svg width="16" height="16" fill="#85878b" style={{marginRight: "6px"}}><path d="M3 4h10M5 8h6M7 12h2" stroke="#85878b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
-                            </span>
-                            Filter
-                        </button>
-                        {/* Search Input */}
+            <div className='main-content'>
+                <div className='header-section'>
+                    <h1 className='main-title'>Discover All Vendors</h1>
+                    <p className='subtitle'>Browse through a comprehensive list of all registered vendors on our platform.</p>
+                </div>
+
+                <div className="search-container">
+                    <div className="search-wrapper">
                         <input
                             type="text"
                             placeholder="Search by Name, Category......"
                             className="search-input"
-                           
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onKeyDown={handleKeyDown}
                         />
-                        {/* Sort Button
-                        <button className="sort-btn">
-                            <span style={{display: "flex", alignItems: "center"}}>
-                                <svg width="16" height="16" fill="#85878b" style={{marginRight: "6px"}}><path d="M10 6l2 2-2 2M6 14V6M6 6l2-2-2-2" stroke="#85878b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
-                            </span>
-                            Sort By
-                        </button> */}
+                        <button className="search-icon-btn" onClick={handleSearch}>
+                            <FaSearch />
+                        </button>
                     </div>
+                </div>
 
-                    {/* Vendor Card grid */}
+                {error && <p className="error-text">{error}</p>}
+                
+                {isLoading ? (
+                    <p className="loading-copy">Loading vendors...</p>
+                ) : vendors.length === 0 ? (
+                    <p className="empty-copy">No vendors found. Try a different search.</p>
+                ) : (
                     <div className="vendor-grid">
-                        <div className="vendor-card">
-                            <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Divine Catering" />
-                            </div>
-                            <div className="vendor-info">
-                                <h3 className="vendor-name">Divine Catering</h3>
-                                <span className="vendor-category">Catering</span>
-                                <p className="vendor-description">
-                                    Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
-                                </p>
-                                <div className="vendor-location">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span>Kimironko, Gasabo</span>
-                                </div>
-                                <button className="visit-page-btn">Visit Page</button>
-                            </div>
-                        </div>
+                        {vendors.map((vendor) => {
+                            const displayName = vendor.businessName || vendor.name || 'Vendor';
+                            const category = vendor.category || 'General';
+                            const location = vendor.city ? `${vendor.city}${vendor.address ? `, ${vendor.address}` : ''}` : vendor.address || 'Location not specified';
+                            const image = vendor.photos?.[0] || logo_icon;
+                            const description = vendor.description || 'No description available.';
 
-                        <div className="vendor-card">
-                            <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
-                            </div>
-                            <div className="vendor-info">
-                                <h3 className="vendor-name">XOXO</h3>
-                                <span className="vendor-category">Restaurant</span>
-                                <p className="vendor-description">
-                                    Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
-                                </p>
-                                <div className="vendor-location">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span>Kimironko, Gasabo</span>
+                            return (
+                                <div className="vendor-card" key={vendor._id || vendor.id}>
+                                    <div className="vendor-profile-image">
+                                        <img src={image} alt={displayName} />
+                                    </div>
+                                    <div className="vendor-info">
+                                        <h3 className="vendor-name">{displayName}</h3>
+                                        <span className="vendor-category">{category}</span>
+                                        <p className="vendor-description">
+                                            {description.length > 100 ? `${description.substring(0, 100)}...` : description}
+                                        </p>
+                                        <div className="vendor-location">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                                <circle cx="12" cy="10" r="3"></circle>
+                                            </svg>
+                                            <span>{location}</span>
+                                        </div>
+                                        <button 
+                                            className="visit-page-btn"
+                                            onClick={() => handleVendorClick(vendor._id || vendor.id)}
+                                        >
+                                            Visit Page
+                                        </button>
+                                    </div>
                                 </div>
-                                <button className="visit-page-btn">Visit Page</button>
-                            </div>
-                        </div>
-
-                        <div className="vendor-card">
-                            <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhZmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
-                            </div>
-                            <div className="vendor-info">
-                                <h3 className="vendor-name">Shokola Cafe</h3>
-                                <span className="vendor-category">Coffee Shop</span>
-                                <p className="vendor-description">
-                                    Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
-                                </p>
-                                <div className="vendor-location">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span>Kimironko, Gasabo</span>
-                                </div>
-                                <button className="visit-page-btn">Visit Page</button>
-                            </div>
-                        </div>
-
-                        <div className="vendor-card">
-                            <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFzdHJ5fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
-                            </div>
-                            <div className="vendor-info">
-                                <h3 className="vendor-name">Brioche</h3>
-                                <span className="vendor-category">Pastry Shop</span>
-                                <p className="vendor-description">
-                                    Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
-                                </p>
-                                <div className="vendor-location">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span>Kimironko, Gasabo</span>
-                                </div>
-                                <button className="visit-page-btn">Visit Page</button>
-                            </div>
-                        </div>
-
-                        <div className="vendor-card">
-                            <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
-                            </div>
-                            <div className="vendor-info">
-                                <h3 className="vendor-name">Sapa Cakes</h3>
-                                <span className="vendor-category">Cake Shop</span>
-                                <p className="vendor-description">
-                                    Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
-                                </p>
-                                <div className="vendor-location">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span>Kimironko, Gasabo</span>
-                                </div>
-                                <button className="visit-page-btn">Visit Page</button>
-                            </div>
-                        </div>
-
-                        <div className="vendor-card">
-                            <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
-                            </div>
-                            <div className="vendor-info">
-                                <h3 className="vendor-name">Cave Restaurant</h3>
-                                <span className="vendor-category">Restaurant</span>
-                                <p className="vendor-description">
-                                    Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
-                                </p>
-                                <div className="vendor-location">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span>Kimironko, Gasabo</span>
-                                </div>
-                                <button className="visit-page-btn">Visit Page</button>
-                            </div>
-                        </div>
-
-                        <div className="vendor-card">
-                            <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1596995804697-27d11d43652e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1037" alt="Divine Catering" />
-                            </div>
-                            <div className="vendor-info">
-                                <h3 className="vendor-name">Kebab House</h3>
-                                <span className="vendor-category">Restaurant</span>
-                                <p className="vendor-description">
-                                    Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
-                                </p>
-                                <div className="vendor-location">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span>Kimironko, Gasabo</span>
-                                </div>
-                                <button className="visit-page-btn">Visit Page</button>
-                            </div>
-                        </div>
-
-                        <div className="vendor-card">
-                            <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1571757392712-7c1052de7ce5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emVyaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
-                            </div>
-                            <div className="vendor-info">
-                                <h3 className="vendor-name">Mama Pizzalo</h3>
-                                <span className="vendor-category">Pizzeria</span>
-                                <p className="vendor-description">
-                                    Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
-                                </p>
-                                <div className="vendor-location">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span>Kimironko, Gasabo</span>
-                                </div>
-                                <button className="visit-page-btn">Visit Page</button>
-                            </div>
-                        </div>
-
-                        <div className="vendor-card">
-                            <div className="vendor-profile-image">
-                                <img src="https://images.unsplash.com/photo-1559249849-58451f22f489?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YnVyZ2VyJTIwam9pbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" alt="Divine Catering" />
-                            </div>
-                            <div className="vendor-info">
-                                <h3 className="vendor-name">Burger Planet</h3>
-                                <span className="vendor-category">Burger Joint</span>
-                                <p className="vendor-description">
-                                    Exquisite culinary experiences for events of all sizes, specializing in gourmet dishes and impeccable service.
-                                </p>
-                                <div className="vendor-location">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span>Kimironko, Gasabo</span>
-                                </div>
-                                <button className="visit-page-btn">Visit Page</button>
-                            </div>
-                        </div>
+                            );
+                        })}
                     </div>
+                )}
 
-                    {/* Pagination */}
-                    <div className="pagination">
-                    <button className="pagination-btn">
-                    <FaArrowLeft style={{ marginRight: '0.5rem' }}  /> 
-                    </button>
-                    <button className="pagination-btn active">1</button>
-                    <button className="pagination-btn">2</button>
-                    <button className="pagination-btn">3</button>
-                    <button className="pagination-btn">4</button>
-                    <button className="pagination-btn">5</button>
-                    <button className="pagination-btn">
-                    <FaArrowRight style={{ marginRight: '0.5rem' }}  /> 
-                    </button>
-                </div>
-                </div>
-                <Footer />
+                {!isLoading && vendors.length > 0 && renderPagination()}
             </div>
-        )
+            <Footer />
+        </div>
+    )
 }

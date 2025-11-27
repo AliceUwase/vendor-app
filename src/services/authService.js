@@ -2,9 +2,8 @@ import api from '../utils/api';
 
 export const signup = async (userData) => {
   try {
-    const response = await api.post('/api/auth/signup', userData);
+    const response = await api.post('/auth/signup', userData);
     
-    // Save token and user to localStorage
     if (response.data.success) {
       localStorage.setItem('token', response.data.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.data.user));
@@ -18,7 +17,7 @@ export const signup = async (userData) => {
 
 export const login = async (credentials) => {
   try {
-    const response = await api.post('/api/auth/login', credentials);
+    const response = await api.post('/auth/login', credentials);
     
     if (response.data.success) {
       localStorage.setItem('token', response.data.data.token);
@@ -31,10 +30,34 @@ export const login = async (credentials) => {
   }
 };
 
-export const logout = () => {
-  localStorage.removeItem('token');
-  localStorage.removeItem('user');
-  window.location.href = '/login';
+export const getProfile = async () => {
+  try {
+    const response = await api.get('/auth/profile');
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || { message: 'Failed to fetch profile' };
+  }
+};
+
+export const updateProfile = async (userData) => {
+  try {
+    const response = await api.put('/auth/profile', userData);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || { message: 'Failed to update profile' };
+  }
+};
+
+export const logout = async () => {
+  try {
+    await api.post('/auth/logout');
+  } catch (error) {
+    console.error('Logout API call failed:', error);
+  } finally {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    window.location.href = '/login';
+  }
 };
 
 export const getCurrentUser = () => {

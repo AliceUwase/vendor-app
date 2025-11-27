@@ -4,6 +4,7 @@ import { FaSearch, FaArrowRight } from "react-icons/fa";
 import Footer from "./Footer";
 import { Navbar } from './Navbar';
 import { getAllVendors, getVendorsByCategory, searchVendors } from '../../services/vendorService';
+import { useSearchParams } from 'react-router-dom';
 import logo_icon from '../../Assets/logo.svg';
 
 const STATIC_CATEGORIES = [
@@ -20,16 +21,23 @@ const normalizeVendors = (payload) => {
 }
 
 export const BrowsePage = () => {
+    const [searchParams] = useSearchParams();
+    const categoryFromUrl = searchParams.get('category');
     const [, setIsSelectionOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('')
     const [vendors, setVendors] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState('')
-    const [activeCategory, setActiveCategory] = useState('')
+    const [activeCategory, setActiveCategory] = useState(categoryFromUrl || '')
 
     useEffect(() => {
-        loadVendors(() => getAllVendors())
-    }, [])
+        if (categoryFromUrl) {
+            setActiveCategory(categoryFromUrl);
+            loadVendors(() => getVendorsByCategory(categoryFromUrl));
+        } else {
+            loadVendors(() => getAllVendors());
+        }
+    }, [categoryFromUrl])
 
     const loadVendors = async (fetcher) => {
         setError('')
@@ -155,7 +163,12 @@ export const BrowsePage = () => {
                                 const image = vendor.logo || vendor.image || vendor.coverImage || logo_icon
 
                                 return (
-                                    <div className="vendor-card" key={vendor._id || vendor.id || displayName}>
+                                    <div 
+                                        className="vendor-card" 
+                                        key={vendor._id || vendor.id || displayName}
+                                        onClick={() => window.location.href = `/vendorDetails?id=${vendor._id || vendor.id}`}
+                                        style={{ cursor: 'pointer' }}
+                                    >
                                         <img src={image} alt={displayName} className="vendor-image" />
                                         <div className="vendor-info">
                                             <div className="vendor-name-type">
@@ -169,7 +182,7 @@ export const BrowsePage = () => {
                                                 </div>
                                             )}
                                         </div>
-                                        <button className="contact-btn">Contact</button>
+                                        <button className="contact-btn">Visit Page</button>
                                     </div>
                                 )
                             })}

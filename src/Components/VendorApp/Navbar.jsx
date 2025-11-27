@@ -3,12 +3,33 @@ import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo_icon from "../../Assets/logo.svg";
 import { SelectionCard } from "./SelectionCard";
+import { isAuthenticated, getCurrentUser, logout } from "../../services/authService";
+import { useToast } from "../../contexts/ToastContext";
+import './Navbar.css';
 
 export const Navbar = ({showBestDeals=false}) => {
+  const toast = useToast();
   const [isSelectionOpen, setIsSelectionOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const [authenticated, setAuthenticated] = useState(false);
 
-  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    const checkAuth = () => {
+      const authStatus = isAuthenticated();
+      setAuthenticated(authStatus);
+      if (authStatus) {
+        setUser(getCurrentUser());
+      } else {
+        setUser(null);
+      }
+    };
+
+    checkAuth();
+    const interval = setInterval(checkAuth, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -19,6 +40,15 @@ export const Navbar = ({showBestDeals=false}) => {
       document.body.style.overflow = 'unset';
     };
   }, [isMobileMenuOpen]);
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      toast.success('Logged out successfully');
+    } catch (error) {
+      toast.error('Failed to logout. Please try again.');
+    }
+  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -55,12 +85,24 @@ export const Navbar = ({showBestDeals=false}) => {
               <a href="#specials" onClick={handleNavLinkClick}>Best Deals</a>
             </li>
           )}
-          {/* <li><a href="#footer">About</a></li> */}
         </ul>
 
-        <button className="nav-btn" onClick={() => setIsSelectionOpen(true)}>
-          Get Started
-        </button>
+        <div className="nav-actions">
+          {authenticated ? (
+            <>
+              <div className="user-info">
+                <span className="user-name">{user?.name || 'User'}</span>
+              </div>
+              <button className="nav-btn logout-btn" onClick={handleLogout}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <button className="nav-btn" onClick={() => setIsSelectionOpen(true)}>
+              Get Started
+            </button>
+          )}
+        </div>
 
         {/* Mobile Menu Toggle Button */}
         <button 
@@ -101,15 +143,32 @@ export const Navbar = ({showBestDeals=false}) => {
               </li>
             )}
           </ul>
-          <button 
-            className="mobile-nav-btn" 
-            onClick={() => {
-              setIsSelectionOpen(true);
-              closeMobileMenu();
-            }}
-          >
-            Get Started
-          </button>
+          {authenticated ? (
+            <>
+              <div className="mobile-user-info">
+                <span className="mobile-user-name">{user?.name || 'User'}</span>
+              </div>
+              <button 
+                className="mobile-nav-btn logout-btn" 
+                onClick={() => {
+                  handleLogout();
+                  closeMobileMenu();
+                }}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <button 
+              className="mobile-nav-btn" 
+              onClick={() => {
+                setIsSelectionOpen(true);
+                closeMobileMenu();
+              }}
+            >
+              Get Started
+            </button>
+          )}
         </div>
       </div>
 

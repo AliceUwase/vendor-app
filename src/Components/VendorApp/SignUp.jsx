@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './SignUp.css'
 import { signup } from '../../services/authService'
+import { useToast } from '../../contexts/ToastContext'
 
 import logo_icon from '../../Assets/Vendor.svg'
 import food_image from '../../Assets/food2.png'
@@ -9,6 +10,7 @@ import food_image from '../../Assets/food2.png'
 
 export const SignUp = () => {
   const navigate = useNavigate()
+  const toast = useToast()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -28,26 +30,35 @@ export const SignUp = () => {
     event.preventDefault()
     setError('')
     if (!acceptTerms) {
-      setError('Please accept the terms to continue.')
+      const errorMsg = 'Please accept the terms to continue.'
+      setError(errorMsg)
+      toast.warning(errorMsg)
       return
     }
     setIsSubmitting(true)
     try {
       const payload = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
+        name: `${formData.firstName} ${formData.lastName}`.trim(),
         email: formData.email,
         password: formData.password,
+        userType: 'customer'
       }
       const response = await signup(payload)
 
       if (response?.success) {
-        navigate('/browsePage')
+        toast.success('Account created successfully! Welcome!')
+        setTimeout(() => {
+          navigate('/browsePage')
+        }, 500)
         return
       }
-      setError(response?.message || 'Unable to sign up. Please try again.')
+      const errorMsg = response?.message || 'Unable to sign up. Please try again.'
+      setError(errorMsg)
+      toast.error(errorMsg)
     } catch (submitError) {
-      setError(submitError?.message || 'Unable to sign up. Please try again.')
+      const errorMsg = submitError?.message || 'Unable to sign up. Please try again.'
+      setError(errorMsg)
+      toast.error(errorMsg)
     } finally {
       setIsSubmitting(false)
     }

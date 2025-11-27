@@ -1,14 +1,13 @@
 import axios from 'axios';
 
-// Your Render backend URL
-const API_BASE_URL = 'https://vendorapp-backend.onrender.com/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json'
   },
-  timeout: 10000 // 10 second timeout
+  timeout: 10000
 });
 
 // adding token to requests automatically

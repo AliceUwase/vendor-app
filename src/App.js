@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ToastProvider } from './contexts/ToastContext';
 import { Login } from './Components/VendorApp/LogIn';
 import { SignUp } from './Components/VendorApp/SignUp'; 
 import { Landing } from './Components/VendorApp/Landing';
@@ -13,20 +14,22 @@ import { AllVendors } from './Components/VendorApp/AllVendors';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/landing" element={<Landing />} />
-        <Route path="/vendor-registration" element={<VendorRegistration />} />
-        <Route path="/ReviewForm" element={<ReviewForm />} />
-        <Route path="/vendorDetails" element={<VendorDetails />} />
-        <Route path="/browsePage" element={<BrowsePage />} />
-        <Route path="/allCategories" element={<AllCategories />} />
-        <Route path="/allVendors" element={<AllVendors />} />
-      </Routes>
+    <ToastProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/landing" element={<Landing />} />
+          <Route path="/vendor-registration" element={<VendorRegistration />} />
+          <Route path="/ReviewForm" element={<ReviewForm />} />
+          <Route path="/vendorDetails" element={<VendorDetails />} />
+          <Route path="/browsePage" element={<BrowsePage />} />
+          <Route path="/allCategories" element={<AllCategories />} />
+          <Route path="/allVendors" element={<AllVendors />} />
+        </Routes>
       </Router>
+    </ToastProvider>
   );
 }
 
