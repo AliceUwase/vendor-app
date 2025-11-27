@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Your Render backend URL
-const API_BASE_URL = 'https://vendorapp-backend.onrender.com/';
+const API_BASE_URL = 'https://vendorapp-backend.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
