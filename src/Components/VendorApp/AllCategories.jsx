@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './AllCategories.css';
 import Footer from "./Footer";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { Navbar } from './Navbar';
 import { getAllCategories } from '../../services/categoryService';
 import { useNavigate } from 'react-router-dom';

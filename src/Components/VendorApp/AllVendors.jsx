@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Logo_icon from '../../Assets/logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import './AllVendors.css';
@@ -22,11 +22,7 @@ export const AllVendors = () => {
     const [totalPages, setTotalPages] = useState(1);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        loadVendors();
-    }, [currentPage]);
-
-    const loadVendors = async (searchQuery = null) => {
+    const loadVendors = useCallback(async (searchQuery = null) => {
         setIsLoading(true);
         setError('');
         try {
@@ -49,7 +45,11 @@ export const AllVendors = () => {
         } finally {
             setIsLoading(false);
         }
-    };
+    }, [currentPage]);
+
+    useEffect(() => {
+        loadVendors();
+    }, [loadVendors]);
 
     const handleSearch = () => {
         setCurrentPage(1);

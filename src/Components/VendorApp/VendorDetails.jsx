@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './VendorDetails.css';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import Logo_icon from '../../Assets/logo.svg';
@@ -18,16 +18,7 @@ export const VendorDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    if (vendorId) {
-      loadVendorData();
-    } else {
-      setError('Vendor ID not provided');
-      setIsLoading(false);
-    }
-  }, [vendorId]);
-
-  const loadVendorData = async () => {
+  const loadVendorData = useCallback(async () => {
     setIsLoading(true);
     setError('');
     try {
@@ -50,7 +41,16 @@ export const VendorDetails = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [vendorId]);
+
+  useEffect(() => {
+    if (vendorId) {
+      loadVendorData();
+    } else {
+      setError('Vendor ID not provided');
+      setIsLoading(false);
+    }
+  }, [vendorId, loadVendorData]);
 
   const handleWriteReview = () => {
     if (!isAuthenticated()) {
